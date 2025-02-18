@@ -8,7 +8,6 @@ use Illuminate\Auth\RequestGuard;
 use Illuminate\Auth\SessionGuard;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Foundation\Application;
 
 class MacroServiceProvider extends ServiceProvider
 {

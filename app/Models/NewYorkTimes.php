@@ -5,10 +5,11 @@ namespace App\Models;
 use App\Models\Scopes\NewYorkTimesScope;
 use App\Traits\DefaultOrderTrait;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class NewYorkTimes extends NewsSource
 {
-    use DefaultOrderTrait;
+    use DefaultOrderTrait, SoftDeletes;
 
     //
     protected $table = 'news_sources';

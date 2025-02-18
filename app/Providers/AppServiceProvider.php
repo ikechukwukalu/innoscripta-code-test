@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Services\Auth\ThrottleRequestsService;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

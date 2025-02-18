@@ -4,7 +4,7 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NewsArticleController;
 use App\Http\Controllers\NewsSourceController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\UserPreferenceController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('user/admin')->middleware(['check.user.is.admin'])->group(function () {
@@ -40,6 +40,11 @@ Route::prefix('user/admin')->middleware(['check.user.is.admin'])->group(function
             Route::put('update', [AuthorController::class, 'update'])->name('updateAuthor');
 
         });
+
+    });
+    Route::prefix('preference')->group(function () {
+
+        Route::get('read/{id?}', [UserPreferenceController::class, 'read'])->name('readUserPreference');
 
     });
 

@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\NewsArticleController;
 use App\Http\Controllers\NewsSourceController;
+use App\Http\Controllers\UserPreferenceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -67,6 +68,14 @@ Route::prefix('user')->group(function () {
             Route::get('read/{id?}', [AuthorController::class, 'read'])->name('readAuthor');
 
         });
+
+    });
+
+    Route::prefix('preference')->group(function () {
+
+        Route::post('create', [UserPreferenceController::class, 'create'])->name('createUserPreference');
+        Route::delete('delete', [UserPreferenceController::class, 'delete'])->name('deleteUserPreference');
+        Route::get('user_read/{id?}', [UserPreferenceController::class, 'read'])->name('readByUserIdUserPreference');
 
     });
 

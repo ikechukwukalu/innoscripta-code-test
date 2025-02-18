@@ -7,6 +7,8 @@ return [
     'unknown_error' => 'An error has occurred',
     'not_found' => 'Not Found',
 
+    'empty_payload' => 'Empty request',
+
     "not_verified" => [
         "email" => "User email is not verified.",
         "phone" => "User phone is not verified.",

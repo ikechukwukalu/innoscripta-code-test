@@ -30,7 +30,7 @@ npm run build
 ### Run websocket server
 
 ```shell
-php artisan websocket:serve
+php artisan reverb:start --debug
 ```
 
 ### Run queue worker

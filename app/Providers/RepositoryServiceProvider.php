@@ -13,6 +13,7 @@ use App\Contracts\NewsSourceRepositoryInterface;
 use App\Contracts\OldPasswordRepositoryInterface;
 use App\Contracts\SocialiteLoginRepositoryInterface;
 use App\Contracts\TwoFactorLoginRepositoryInterface;
+use App\Contracts\UserPreferenceRepositoryInterface;
 use App\Contracts\UserRepositoryInterface;
 use App\Contracts\UserDeviceTokenRepositoryInterface;
 use App\Contracts\UserPasswordHolderRepositoryInterface;
@@ -27,6 +28,7 @@ use App\Repositories\NewsSourceRepository;
 use App\Repositories\OldPasswordRepository;
 use App\Repositories\SocialiteLoginRepository;
 use App\Repositories\TwoFactorLoginRepository;
+use App\Repositories\UserPreferenceRepository;
 use App\Repositories\UserRepository;
 use App\Repositories\UserDeviceTokenRepository;
 use App\Repositories\UserPasswordHolderRepository;
@@ -53,6 +55,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(NewsArticleRepositoryInterface::class, NewsArticleRepository::class);
         $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
         $this->app->bind(AuthorRepositoryInterface::class, AuthorRepository::class);
+        $this->app->bind(UserPreferenceRepositoryInterface::class, UserPreferenceRepository::class);
     }
 
     /**

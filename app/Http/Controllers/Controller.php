@@ -48,4 +48,13 @@ class Controller extends BaseController
 
         return unknownErrorResponseFormat($request);
     }
+
+    protected function _readByUserId(mixed $service, int $userId, null|string|int $id = null): JsonResponse
+    {
+        if ($data = $service->handleReadByUserId($userId, $id)) {
+            return httpJsonResponse($data);
+        };
+
+        return unknownErrorJsonResponse();
+    }
 }

@@ -20,6 +20,9 @@ return [
         'news_article' => [
             'pageSize' => 10,
         ],
+        'user_preference' => [
+            'pageSize' => 10,
+        ],
     ],
     /**
      * Password configurations
