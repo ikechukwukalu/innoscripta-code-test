@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Contracts\FrontendApp;
 use App\Traits\MustVerifyPhone;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
@@ -13,7 +14,7 @@ use Laragear\TwoFactor\TwoFactorAuthentication;
 use Laragear\TwoFactor\Contracts\TwoFactorAuthenticatable;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable implements TwoFactorAuthenticatable, MustVerifyEmail
+class User extends Authenticatable implements TwoFactorAuthenticatable, MustVerifyEmail, FrontendApp
 {
     use HasApiTokens, HasFactory, Notifiable, TwoFactorAuthentication;
     use HasRoles, MustVerifyPhone;
@@ -84,6 +85,11 @@ class User extends Authenticatable implements TwoFactorAuthenticatable, MustVeri
     protected function getDefaultGuardName(): string
     {
         return 'web';
+    }
+
+    public function url(): string
+    {
+        return env('APP_URL');
     }
 
 }

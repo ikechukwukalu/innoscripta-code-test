@@ -26,6 +26,6 @@ class Admin extends User
 
     public function url(): string
     {
-        return env('APP_URL');
+        return env('APP_ADMIN_URL');
     }
 }

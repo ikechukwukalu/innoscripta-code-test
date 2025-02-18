@@ -8,6 +8,18 @@ return [
         'user_device_token' => [
             'pageSize' => 10,
         ],
+        'news_source' => [
+            'pageSize' => 10,
+        ],
+        'category' => [
+            'pageSize' => 10,
+        ],
+        'author' => [
+            'pageSize' => 10,
+        ],
+        'news_article' => [
+            'pageSize' => 10,
+        ],
     ],
     /**
      * Password configurations

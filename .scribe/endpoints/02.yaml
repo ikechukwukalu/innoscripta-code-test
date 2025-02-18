@@ -1,0 +1,511 @@
+name: 'No Auth APIs'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/register
+    metadata:
+      groupName: 'No Auth APIs'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'User form registration.'
+      description: |-
+        Within the config file, you are required to determine whether a
+        user should recieve welcome and verification emails after
+        registration by setting <b>registration.notify.welcome</b> to <b>TRUE</b> and
+        <b>registration.notify.verify</b> to <b>TRUE</b> respectively.
+        You can also set <b>registration.autologin</b> to <b>TRUE</b>.
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The full name of the user.'
+        required: true
+        example: 'John Bison Doe'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: 'The email of the user.'
+        required: true
+        example: johndoe@xyz.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      phone:
+        name: phone
+        description: 'The phone of the user.'
+        required: true
+        example: '08012345678'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: 'The password for user authentication must contain uppercase, lowercase, symbols, numbers.'
+        required: true
+        example: Ex@m122p$%l6E
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      first_name:
+        name: first_name
+        description: 'The first name of the user.'
+        required: true
+        example: John
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      middle_name:
+        name: middle_name
+        description: 'The middle name of the user.'
+        required: true
+        example: Bison
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      last_name:
+        name: last_name
+        description: 'The last name of the user.'
+        required: true
+        example: Doe
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      unit_number:
+        name: unit_number
+        description: 'The unit number of the user.'
+        required: true
+        example: NG08012345678
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: 'Must match <small class="badge badge-blue">password</small> Field.'
+        required: true
+        example: Ex@m122p$%l6E
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      type:
+        name: type
+        description: 'The type of user must either be individual or business.'
+        required: false
+        example: individual
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: 'John Bison Doe'
+      email: johndoe@xyz.com
+      phone: '08012345678'
+      password: Ex@m122p$%l6E
+      first_name: John
+      middle_name: Bison
+      last_name: Doe
+      unit_number: NG08012345678
+      password_confirmation: Ex@m122p$%l6E
+      type: individual
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "status_code": 200,
+          "message": string
+          "data": {}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/login
+    metadata:
+      groupName: 'No Auth APIs'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'User form login.'
+      description: |-
+        You can choose to notify a User whenever there has been a Login by setting
+        <b>password.notify.change</b> to <b>TRUE</b> Within the config file,
+
+        Make sure to retrieve <small class="badge badge-blue">access_token</small> after login for User authentication
+      authenticated: false
+      custom: []
+    headers:
+      Authorization: 'Bearer {Your key}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'The email of the user.'
+        required: true
+        example: johndoe@xyz.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: 'The password for user authentication must contain uppercase, lowercase, symbols, numbers.'
+        required: true
+        example: Ex@m122p$%l6E
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      remember_me:
+        name: remember_me
+        description: 'Could be set to 0 or 1.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      email: johndoe@xyz.com
+      password: Ex@m122p$%l6E
+      remember_me: 1
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "status": "success",
+          "status_code": 200,
+          "data": {
+               "message": string
+               "access_token": string
+           }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/auth/verify/email/{id}'
+    metadata:
+      groupName: 'No Auth APIs'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'User email verification.'
+      description: |-
+        This endpoint must have a valid laravel generated URL signature to work.
+        It is automatically sent after a successful registration and
+        <b>registration.notify.verify</b> is set to <b>TRUE</b> within
+        the config file.
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: |-
+          <small class="badge badge-blue">id</small>
+          Field must belong to a registered User.
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: '1'
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "status_code": 200,
+          "message": string
+          "data": {}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/auth/verify/phone/{id}/{otp}'
+    metadata:
+      groupName: 'No Auth APIs'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'User phone verification.'
+      description: |-
+        This endpoint must have a valid laravel generated URL signature to work.
+        It is automatically sent after a successful registration and
+        <b>registration.notify.verify</b> is set to <b>TRUE</b> within
+        the config file.
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: |-
+          <small class="badge badge-blue">id</small>
+          Field must belong to a registered User.
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      otp:
+        name: otp
+        description: ''
+        required: true
+        example: nihil
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: '1'
+      otp: nihil
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "status_code": 200,
+          "message": string
+          "data": {}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/forgot/password
+    metadata:
+      groupName: 'No Auth APIs'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'User forgot password.'
+      description: 'The user must enter a registered email.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'The email of the user.'
+        required: true
+        example: johndoe@xyz.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      email: johndoe@xyz.com
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "status_code": 200,
+          "message": string
+          "data": {}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/create
+    metadata:
+      groupName: 'No Auth APIs'
+      groupDescription: ''
+      subgroup: 'Contact Us APIs'
+      subgroupDescription: ''
+      title: 'Create contact us message.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {Your key}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      reason:
+        name: reason
+        description: 'The reason for contacting us.'
+        required: true
+        example: 'I want to make an enquiry'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      subject:
+        name: subject
+        description: 'The subject of the contact us message.'
+        required: true
+        example: 'Discount for multiple export'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      message:
+        name: message
+        description: 'The message for customer support .'
+        required: true
+        example: 'How do you give discount for large shipments'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      type:
+        name: type
+        description: 'This is the type of enquiry. Can either be complaint, enquiry or support.'
+        required: true
+        example: inquiry
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      reason: 'I want to make an enquiry'
+      subject: 'Discount for multiple export'
+      message: 'How do you give discount for large shipments'
+      type: inquiry
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "status_code": 200,
+          "message": string
+          "data": {}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

@@ -26,7 +26,7 @@ class UserFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->email(),
-            'phone' => fake()->unique()->phoneNumber(),
+            'phone' => '254' . fake()->unique()->numberBetween(700000000, 799999999),
             'email_verified_at' => now(),
             'phone_verified_at' => now(),
             'model' => \App\Models\Customer::class,

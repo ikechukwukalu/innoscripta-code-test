@@ -7,6 +7,9 @@ use App\Http\Controllers\Auth\TwoFactorController;
 use App\Http\Controllers\Auth\ContactUsController;
 use App\Http\Controllers\Auth\UserDeviceTokenController;
 use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\NewsArticleController;
+use App\Http\Controllers\NewsSourceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +44,28 @@ Route::prefix('user')->group(function () {
             Route::delete('delete', [ContactUsController::class, 'delete'])->name('deleteContactUs');
             Route::get('read/{id?}', [ContactUsController::class, 'read'])->name('readContactUs');
             Route::put('update', [ContactUsController::class, 'update'])->name('updateContactUs');
+        });
+
+    });
+
+    Route::prefix('news')->group(function () {
+
+        Route::prefix('article')->group(function () {
+
+            Route::get('read/{id?}', [NewsArticleController::class, 'read'])->name('readNewsArticle');
+
+        });
+
+        Route::prefix('source')->group(function () {
+
+            Route::get('read/{id?}', [NewsSourceController::class, 'read'])->name('readNewsSource');
+
+        });
+
+        Route::prefix('author')->group(function () {
+
+            Route::get('read/{id?}', [AuthorController::class, 'read'])->name('readAuthor');
+
         });
 
     });

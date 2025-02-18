@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use App\Models\Admin;
 use App\Models\Customer;
-use App\Services\Auth\ThrottleRequestsService;
 use Illuminate\Auth\RequestGuard;
 use Illuminate\Auth\SessionGuard;
 use Illuminate\Support\ServiceProvider;
@@ -20,29 +19,22 @@ class MacroServiceProvider extends ServiceProvider
     {
         //Auth::customer() for web
         SessionGuard::macro('customer', function(int|string|null $id = null): Customer|null {
-            return Customer::find($id ?? Auth::user()->id);
+            return Customer::find($id ?? Auth::user()->id)->first();
         });
 
         //Auth::customer() for api
         RequestGuard::macro('customer', function(int|string|null $id = null): Customer|null {
-            return Customer::find($id ?? Auth::user()->id);
+            return Customer::find($id ?? Auth::user()->id)->first();
         });
 
         //Auth::admin() for web
         SessionGuard::macro('admin', function(int|string|null $id = null): Admin|null {
-            return Admin::find($id ?? Auth::user()->id);
+            return Admin::find($id ?? Auth::user()->id)->first();
         });
 
         //Auth::admin() for api
         RequestGuard::macro('admin', function(int|string|null $id = null): Admin|null {
-            return Admin::find($id ?? Auth::user()->id);
-        });
-
-        $this->app->bind(ThrottleRequestsService::class, function (Application $app) {
-            return new ThrottleRequestsService(
-                config('api.login.maxAttempts', 3),
-                config('api.login.delayMinutes', 1)
-            );
+            return Admin::find($id ?? Auth::user()->id)->first();
         });
     }
 

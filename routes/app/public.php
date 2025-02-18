@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\ContactUsController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,13 @@ Route::prefix('auth')->group(function () {
     Route::post('forgot/password', [ForgotPasswordController::class, 'forgotPassword'])->name('forgotPassword');
     Route::post('reset/password', [ResetPasswordController::class, 'resetPassword'])->name('resetPassword');
 
-    // contact us route
-    Route::post('create', [ContactUsController::class, 'create'])->name('createContactUs');
+});
+
+// contact us route
+Route::post('create', [ContactUsController::class, 'create'])->name('createContactUs');
+
+Route::prefix('category')->group(function () {
+
+    Route::get('read/{id?}', [CategoryController::class, 'read'])->name('readCategory');
+
 });

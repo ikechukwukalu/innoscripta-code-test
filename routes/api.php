@@ -31,6 +31,7 @@ Route::get('/user', function (Request $request) {
 
 Route::middleware('auth:sanctum')->group(function () {
     require __DIR__.'/app/user.php';
+    require __DIR__.'/app/admin.php';
 });
 
 require __DIR__.'/app/public.php';
