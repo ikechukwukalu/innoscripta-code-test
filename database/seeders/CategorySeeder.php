@@ -21,6 +21,12 @@ class CategorySeeder extends Seeder
             'Science',
             'Sports',
             'Technology',
+            'Home',
+            'World',
+            'Arts',
+            'Politics',
+            'Books',
+            'Fashion'
         ];
 
         foreach ($categories as $category) {

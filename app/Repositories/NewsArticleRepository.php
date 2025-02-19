@@ -98,4 +98,15 @@ class NewsArticleRepository implements NewsArticleRepositoryInterface
     {
         return NewsArticle::insert($arrayDetails);
     }
+
+    /**
+     * Fetch \App\Models\NewsArticle record by Model.
+     *
+     * @param string $sourceExternalId
+     * @return \App\Models\NewsArticle|null
+     */
+    public function getBySourceExternalId(string $sourceExternalId): null|NewsArticle
+    {
+        return NewsArticle::where('source_external_id', $sourceExternalId)->first();
+    }
 }

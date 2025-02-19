@@ -100,17 +100,6 @@ class NewsSourceRepository implements NewsSourceRepositoryInterface
     }
 
     /**
-     * Fetch \App\Models\NewsSource record by Model.
-     *
-     * @param string $sourceExternalId
-     * @return \App\Models\NewsSource|null
-     */
-    public function getBySourceExternalId(string $sourceExternalId): null|NewsSource
-    {
-        return NewsSource::where('source_external_id', $sourceExternalId)->first();
-    }
-
-    /**
      * Insert multiple \App\Models\NewsSource records.
      *
      * @param array $arrayDetails

@@ -18,11 +18,12 @@ return new class extends Migration
             $table->string('news_source_name');
             $table->string('category_name');
             $table->text('source_external_id');
-            $table->string('title');
+            $table->text('title');
             $table->text('description');
             $table->longText('content');
             $table->string('imageUrl')->nullable();
             $table->boolean('active')->default(true);
+            $table->boolean('contentIsUrl')->default(false);
             $table->timestamp('published_at')->nullable();
             $table->timestamp('archived_at')->nullable();
             $table->softDeletes();

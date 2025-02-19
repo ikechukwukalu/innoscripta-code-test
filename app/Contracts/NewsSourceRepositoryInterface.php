@@ -75,14 +75,6 @@ interface NewsSourceRepositoryInterface
     public function getByModel(string $model): null|NewsSource;
 
     /**
-     * Fetch \App\Models\NewsSource record by Model.
-     *
-     * @param string $sourceExternalId
-     * @return \App\Models\NewsSource|null
-     */
-    public function getBySourceExternalId(string $sourceExternalId): null|NewsSource;
-
-    /**
      * Insert multiple \App\Models\NewsSource records.
      *
      * @param array $arrayDetails

@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('authors', function (Blueprint $table) {
+        Schema::create('news_authors', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('twitter')->unique()->nullable();
-            $table->string('website')->unique()->nullable();
-            $table->string('imageUrl')->nullable();
-            $table->text('batch_no')->index()->nullable();
-            $table->boolean('active')->default(true);
+            $table->foreignId('news_source_id')->constrained('news_sources')->onDelete('cascade');
+            $table->foreignId('author_id')->constrained('authors')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -29,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('authors');
+        Schema::dropIfExists('news_authors');
     }
 };

@@ -15,6 +15,7 @@ class Author extends Model
         'twitter',
         'website',
         'imageUrl',
+        'batch_no',
         'active'
     ];
 

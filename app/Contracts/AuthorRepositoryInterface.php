@@ -81,4 +81,12 @@ interface AuthorRepositoryInterface
      * @return \App\Models\Author|null
      */
     public function getByUniqueId(string $uniqueId): null|Author;
+
+    /**
+     * Fetch \App\Models\Author record by batchNo.
+     *
+     * @param string $batchNo
+     * @return EloquentCollection
+     */
+    public function getByBatchNo(string $batchNo): EloquentCollection;
 }

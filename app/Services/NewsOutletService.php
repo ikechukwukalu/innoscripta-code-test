@@ -2,48 +2,41 @@
 
 namespace App\Services;
 
-use App\Actions\ArticleData;
-use App\Actions\AuthorData;
 use App\Actions\ResponseData;
-use App\Facades\Article as ArticleFacade;
 use App\Facades\Author as AuthorFacade;
 use App\Facades\NewsArticle as NewsArticleFacade;
-use Illuminate\Http\Response;
+use App\Facades\NewsAuthor as NewsAuthorFacade;
 
 abstract class NewsOutletService
 {
 
     protected array $newsArticleInserts = [];
-
     protected array $authorInserts = [];
+    protected array $newsAuthorInserts = [];
 
     abstract public function authorization(): array;
-
     abstract public function fetchArticles(): ResponseData;
 
     /**
      * Summary of saveArticle
-     * @return array|object|ResponseData|null
+     * @return bool
      */
-    protected function saveArticles(): ResponseData
+    protected function saveArticles(): bool
     {
-        if (!NewsArticleFacade::insert($this->newsArticleInserts)) {
-            return responseData(false, Response::HTTP_BAD_REQUEST, trans('general.fail'));
-        }
-
-        return responseData(true, Response::HTTP_OK, trans('general.success'));
+        return NewsArticleFacade::insert($this->newsArticleInserts);
     }
 
     /**
      * Summary of saveAuthor
-     * @return array|object|ResponseData|null
+     * @return bool
      */
-    protected function saveAuthors(): ResponseData
+    protected function saveAuthors(): bool
     {
-        if (!AuthorFacade::insert($this->authorInserts)) {
-            return responseData(false, Response::HTTP_BAD_REQUEST, trans('general.fail'));
-        }
+        return AuthorFacade::insert($this->authorInserts);
+    }
 
-        return responseData(true, Response::HTTP_OK, trans('general.success'));
+    protected function saveNewsAuthors(): bool
+    {
+        return NewsAuthorFacade::insert($this->newsAuthorInserts);
     }
 }

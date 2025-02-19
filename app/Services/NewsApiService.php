@@ -5,11 +5,14 @@ namespace App\Services;
 use App\Actions\ResponseData;
 use App\Facades\Author as AuthorFacade;
 use App\Facades\Category as CategoryFacade;
+use App\Facades\NewsArticle as NewsArticleFacade;
 use App\Facades\NewsSource as NewsSourceFacade;
 use App\Models\NewsApi;
+use Carbon\Carbon;
 use Illuminate\Http\Response;
 use Illuminate\Http\Client\Pool;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 class NewsApiService extends NewsOutletService
 {
@@ -29,7 +32,7 @@ class NewsApiService extends NewsOutletService
     {
         return tryCatch(function () {
 
-            if (!$newsApi = NewsSourceFacade::getByModel(NewsApi::class)) {
+            if (!$newSource = NewsSourceFacade::getByModel(NewsApi::class)) {
                 return responseData(false, Response::HTTP_EXPECTATION_FAILED, trans('general.news_source_not_found', ['name' => 'NewsApi']));
             }
 
@@ -37,7 +40,7 @@ class NewsApiService extends NewsOutletService
                 return responseData(false, Response::HTTP_EXPECTATION_FAILED, trans('general.category_not_found'));
             }
 
-            $responses = Http::pool(function (Pool $pool) use($newsApi, $categories) : array {
+            $responses = Http::pool(function (Pool $pool) use($newSource, $categories) : array {
                 $url = env('NEWS_API_URL') . '/top-headlines';
                 $apiKey = env('NEWS_API_KEY');
                 $pools = [];
@@ -48,61 +51,75 @@ class NewsApiService extends NewsOutletService
                         'sortBy' => 'publishedAt',
                         'pageSize' => 10,
                         'apiKey' => $apiKey,
-                        'category' => $category->name,
+                        'category' => strtolower($category->name),
                     ]);
                 }
 
                 return $pools;
             });
 
-            $data = [];
+            $batchNo = sha1(time() . Str::random(40));
 
             foreach ($responses as $categoryId => $response) {
+
                 if ($response->ok()) {
+
                     $resp = $response->json();
-                    $articles = $resp['articles'];
-                    $category = CategoryFacade::getById($categoryId);
+                    $articles = data_get($resp, 'articles');
+                    $category = $categories->where('id', $categoryId)->first();
 
                     if ($articles) {
-                        $tempAry = collect($articles)->map(function ($article) use($category, $newsApi) {
+                        collect($articles)->map(function ($article) use($category, $newSource, $batchNo) {
 
-                            if (!NewsSourceFacade::getBySourceExternalId($article['source']['id'])) {
+                            if (!NewsArticleFacade::getBySourceExternalId($article['source']['id'])) {
                                 $this->newsArticleInserts[] = [
                                     'title' => $article['title'],
                                     'description' => $article['description'],
                                     'content' => $article['content'],
-                                    'published_at' => $article['publishedAt'],
-                                    'news_source_id' => $newsApi->id,
+                                    'published_at' => Carbon::parse($article['publishedAt']),
+                                    'news_source_id' => $newSource->id,
                                     'category_id' => $category->id,
-                                    'news_source_name' => $newsApi->name,
+                                    'news_source_name' => $newSource->name,
                                     'category_name' => $category->name,
                                     'source_external_id' => $article['source']['id'],
                                     'imageUrl' => $article['urlToImage'],
+                                    'contentIsUrl' => false,
                                     'active' => true,
                                 ];
                             }
 
-                            $authors = explode(',', $article['author']);
+                            if (isset($article['author'])) {
+                                $authors = explode(',', $article['author']);
 
-                            foreach ($authors as $author) {
-                                if (!AuthorFacade::getByUniqueId($author)) {
-                                    $this->authorInserts[] = [
-                                        'name' => $author,
-                                        'twitter' => null,
-                                        'website' => null,
-                                        'imageUrl' => null,
-                                    ];
+                                foreach ($authors as $author) {
+                                    if (!AuthorFacade::getByUniqueId($author)) {
+                                        $this->authorInserts[] = [
+                                            'name' => $author,
+                                            'twitter' => null,
+                                            'website' => null,
+                                            'imageUrl' => null,
+                                            'batch_no' => $batchNo,
+                                        ];
+                                    }
                                 }
                             }
 
                             return $article;
 
                         })->toArray();
-
-                        $data = array_merge_recursive($data, $tempAry);
                     }
 
                 }
+
+            }
+
+            $authorIds = AuthorFacade::getByBatchNo($batchNo)->pluck('id')->toArray();
+
+            foreach ($authorIds as $authorId) {
+                $this->newsArticleInserts[] = [
+                    'author_id' => $authorId,
+                    'news_source_id' => $newSource->id,
+                ];
             }
 
             $message = trans('general.success');
@@ -114,8 +131,9 @@ class NewsApiService extends NewsOutletService
 
             $this->saveArticles();
             $this->saveAuthors();
+            $this->saveNewsAuthors();
 
-            return responseData($responses[$index]->ok(), $responses[$index]->getStatusCode(), $message, $data);
+            return responseData($responses[$index]->ok(), $responses[$index]->getStatusCode(), $message, $this->newsArticleInserts);
         }, function (\Throwable $th) {
 
             return responseData(false, Response::HTTP_EXPECTATION_FAILED, $th->getMessage(), $th->getTrace());

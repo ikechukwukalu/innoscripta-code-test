@@ -110,4 +110,15 @@ class AuthorRepository implements AuthorRepositoryInterface
         return Author::where('name', $uniqueId)
                 ->orWhere('twitter', $uniqueId)->first();
     }
+
+    /**
+     * Fetch \App\Models\Author record by batchNo.
+     *
+     * @param string $batchNo
+     * @return EloquentCollection
+     */
+    public function getByBatchNo(string $batchNo): EloquentCollection
+    {
+        return Author::where('batch_no', $batchNo)->get();
+    }
 }

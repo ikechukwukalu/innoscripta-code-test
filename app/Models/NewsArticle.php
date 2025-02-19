@@ -20,6 +20,7 @@ class NewsArticle extends Model
         'description',
         'content',
         'imageUrl',
+        'contentIsUrl',
         'published_at',
         'archived_at',
         'active'
