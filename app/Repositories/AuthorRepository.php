@@ -87,4 +87,27 @@ class AuthorRepository implements AuthorRepositoryInterface
     {
         return Author::paginate($pageSize);
     }
+
+    /**
+     * Insert multiple \App\Models\Author records.
+     *
+     * @param array $arrayDetails
+     * @return bool
+     */
+    public function insert(array $arrayDetails): bool
+    {
+        return Author::insert($arrayDetails);
+    }
+
+    /**
+     * Fetch \App\Models\Author record by Model.
+     *
+     * @param string $uniqueId
+     * @return \App\Models\Author|null
+     */
+    public function getByUniqueId(string $uniqueId): null|Author
+    {
+        return Author::where('name', $uniqueId)
+                ->orWhere('twitter', $uniqueId)->first();
+    }
 }

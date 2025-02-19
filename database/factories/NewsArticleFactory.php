@@ -18,6 +18,7 @@ class NewsArticleFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence,
+            'description' => $this->faker->sentence,
             'content' => $this->faker->paragraph,
             'published_at' => $this->faker->dateTime,
             'archived_at' => $this->faker->dateTime,

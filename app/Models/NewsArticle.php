@@ -17,6 +17,7 @@ class NewsArticle extends Model
         'category_name',
         'source_external_id',
         'title',
+        'description',
         'content',
         'imageUrl',
         'published_at',

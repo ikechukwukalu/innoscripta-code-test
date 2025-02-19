@@ -7,6 +7,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "erlandmuchasaj/laravel-gzip": "^1.1",
         "ikechukwukalu/magicmake": "^2.0",
         "jcobhams/newsapi": "^1.0",
         "laravel/framework": "^11.31",

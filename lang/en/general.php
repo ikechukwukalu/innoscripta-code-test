@@ -14,5 +14,7 @@ return [
         "phone" => "User phone is not verified.",
         "kyc" => "Please complete your KYC.",
     ],
+    'news_source_not_found' => ':name news source not found',
+    'category_not_found' => 'Categories not found',
 
 ];

@@ -87,4 +87,15 @@ class NewsArticleRepository implements NewsArticleRepositoryInterface
     {
         return NewsArticle::paginate($pageSize);
     }
+
+    /**
+     * Insert multiple \App\Models\NewsArticle records.
+     *
+     * @param array $arrayDetails
+     * @return bool
+     */
+    public function insert(array $arrayDetails): bool
+    {
+        return NewsArticle::insert($arrayDetails);
+    }
 }

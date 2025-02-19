@@ -65,4 +65,12 @@ interface NewsArticleRepositoryInterface
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
     public function getPaginated(int|string $pageSize): LengthAwarePaginator;
+
+    /**
+     * Insert multiple \App\Models\NewsArticle records.
+     *
+     * @param array $arrayDetails
+     * @return bool
+     */
+    public function insert(array $arrayDetails): bool;
 }

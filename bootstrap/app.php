@@ -18,6 +18,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'check.email.verification' => \App\Http\Middleware\CheckEmailVerification::class,
             'check.user.is.admin' => \App\Http\Middleware\CheckIfUserIsAdmin::class,
             'check.phone.verification' => \App\Http\Middleware\CheckPhoneVerification::class,
+            'gzip' => \ErlandMuchasaj\LaravelGzip\Middleware\GzipEncodeResponse::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
