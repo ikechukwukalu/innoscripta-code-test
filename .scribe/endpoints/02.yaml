@@ -336,7 +336,7 @@ endpoints:
         name: otp
         description: ''
         required: true
-        example: voluptas
+        example: hic
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -344,7 +344,7 @@ endpoints:
         custom: []
     cleanUrlParameters:
       id: '1'
-      otp: voluptas
+      otp: hic
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

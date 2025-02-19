@@ -19,8 +19,6 @@ class UserPreferenceController extends Controller
      *
      * @header Authorization Bearer {Your key}
      *
-     * @bodyParam name string required The name of the UserPreference. Example: John
-     *
      * @response 200
      *
      * {

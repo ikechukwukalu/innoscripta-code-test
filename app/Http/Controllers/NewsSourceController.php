@@ -19,9 +19,6 @@ class NewsSourceController extends Controller
      *
      * @header Authorization Bearer {Your key}
      *
-     * @bodyParam id string required The id of the NewsSource. Example: 1
-     * @bodyParam name string required The name for the NewsSource. Example: John
-     *
      * @response 200
      *
      * {

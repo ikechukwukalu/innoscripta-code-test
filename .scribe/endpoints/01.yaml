@@ -1175,7 +1175,7 @@ endpoints:
         name: user_id
         description: 'The ID of the user.'
         required: true
-        example: ipsum
+        example: nihil
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1192,7 +1192,7 @@ endpoints:
         nullable: false
         custom: []
     cleanUrlParameters:
-      user_id: ipsum
+      user_id: nihil
       id: all
     queryParameters: []
     cleanQueryParameters: []
@@ -1310,7 +1310,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: author
+        example: category
         type: string
         enumValues:
           - source
@@ -1323,26 +1323,15 @@ endpoints:
         name: tag
         description: 'Must not be greater than 150 characters.'
         required: true
-        example: hbgqwgrtphgjpaky
+        example: sptnhwvarzcihixkwssqj
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
-      name:
-        name: name
-        description: 'The name of the UserPreference.'
-        required: true
-        example: John
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        custom: []
     cleanBodyParameters:
-      type: author
-      tag: hbgqwgrtphgjpaky
-      name: John
+      type: category
+      tag: sptnhwvarzcihixkwssqj
     fileParameters: []
     responses:
       -
@@ -1451,7 +1440,7 @@ endpoints:
         name: user_id
         description: 'The ID of the user.'
         required: true
-        example: iste
+        example: eum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1468,7 +1457,7 @@ endpoints:
         nullable: false
         custom: []
     cleanUrlParameters:
-      user_id: iste
+      user_id: eum
       id: all
     queryParameters: []
     cleanQueryParameters: []
@@ -1572,12 +1561,12 @@ endpoints:
     bodyParameters:
       id:
         name: id
-        description: 'The id of the NewsArticle.'
+        description: 'The <code>id</code> of an existing record in the news_articles table.'
         required: true
-        example: '1'
+        example: itaque
         type: string
         enumValues: []
-        exampleWasSpecified: true
+        exampleWasSpecified: false
         nullable: false
         custom: []
       active:
@@ -1592,20 +1581,9 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
-      name:
-        name: name
-        description: 'The name for the NewsArticle.'
-        required: true
-        example: John
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        nullable: false
-        custom: []
     cleanBodyParameters:
-      id: '1'
+      id: itaque
       active: '0'
-      name: John
     fileParameters: []
     responses:
       -
@@ -1704,29 +1682,29 @@ endpoints:
     bodyParameters:
       id:
         name: id
-        description: 'The id of the NewsSource.'
+        description: 'The <code>id</code> of an existing record in the news_sources table.'
         required: true
-        example: '1'
+        example: ut
         type: string
         enumValues: []
-        exampleWasSpecified: true
+        exampleWasSpecified: false
         nullable: false
         custom: []
       name:
         name: name
-        description: 'The name for the NewsSource.'
-        required: true
-        example: John
+        description: 'Must not be greater than 150 characters.'
+        required: false
+        example: irikydovkalce
         type: string
         enumValues: []
-        exampleWasSpecified: true
+        exampleWasSpecified: false
         nullable: false
         custom: []
       url:
         name: url
         description: 'Must be a valid URL. Must not be greater than 255 characters.'
         required: false
-        example: 'http://www.marks.com/voluptas-odio-reprehenderit-facilis-aperiam-magni-ut.html'
+        example: 'https://www.schowalter.org/necessitatibus-facere-explicabo-quibusdam-dolor-earum-aut-voluptatum'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1736,7 +1714,7 @@ endpoints:
         name: active
         description: ''
         required: false
-        example: '1'
+        example: '0'
         type: string
         enumValues:
           - '0'
@@ -1745,10 +1723,10 @@ endpoints:
         nullable: false
         custom: []
     cleanBodyParameters:
-      id: '1'
-      name: John
-      url: 'http://www.marks.com/voluptas-odio-reprehenderit-facilis-aperiam-magni-ut.html'
-      active: '1'
+      id: ut
+      name: irikydovkalce
+      url: 'https://www.schowalter.org/necessitatibus-facere-explicabo-quibusdam-dolor-earum-aut-voluptatum'
+      active: '0'
     fileParameters: []
     responses:
       -

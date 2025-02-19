@@ -576,7 +576,7 @@ paths:
         in: path
         name: user_id
         description: 'The ID of the user.'
-        example: ipsum
+        example: nihil
         required: true
         schema:
           type: string
@@ -651,7 +651,7 @@ paths:
                 type:
                   type: string
                   description: ''
-                  example: author
+                  example: category
                   nullable: false
                   enum:
                     - source
@@ -660,17 +660,11 @@ paths:
                 tag:
                   type: string
                   description: 'Must not be greater than 150 characters.'
-                  example: hbgqwgrtphgjpaky
-                  nullable: false
-                name:
-                  type: string
-                  description: 'The name of the UserPreference.'
-                  example: John
+                  example: sptnhwvarzcihixkwssqj
                   nullable: false
               required:
                 - type
                 - tag
-                - name
   /api/user/preference/delete:
     delete:
       summary: 'Delete UserPreference.'
@@ -722,7 +716,7 @@ paths:
         in: path
         name: user_id
         description: 'The ID of the user.'
-        example: iste
+        example: eum
         required: true
         schema:
           type: string
@@ -795,8 +789,8 @@ paths:
               properties:
                 id:
                   type: string
-                  description: 'The id of the NewsArticle.'
-                  example: '1'
+                  description: 'The <code>id</code> of an existing record in the news_articles table.'
+                  example: itaque
                   nullable: false
                 active:
                   type: string
@@ -806,15 +800,9 @@ paths:
                   enum:
                     - '0'
                     - '1'
-                name:
-                  type: string
-                  description: 'The name for the NewsArticle.'
-                  example: John
-                  nullable: false
               required:
                 - id
                 - active
-                - name
   /api/user/admin/news/source/delete:
     delete:
       summary: 'Delete NewsSource.'
@@ -870,30 +858,29 @@ paths:
               properties:
                 id:
                   type: string
-                  description: 'The id of the NewsSource.'
-                  example: '1'
+                  description: 'The <code>id</code> of an existing record in the news_sources table.'
+                  example: ut
                   nullable: false
                 name:
                   type: string
-                  description: 'The name for the NewsSource.'
-                  example: John
+                  description: 'Must not be greater than 150 characters.'
+                  example: irikydovkalce
                   nullable: false
                 url:
                   type: string
                   description: 'Must be a valid URL. Must not be greater than 255 characters.'
-                  example: 'http://www.marks.com/voluptas-odio-reprehenderit-facilis-aperiam-magni-ut.html'
+                  example: 'https://www.schowalter.org/necessitatibus-facere-explicabo-quibusdam-dolor-earum-aut-voluptatum'
                   nullable: false
                 active:
                   type: string
                   description: ''
-                  example: '1'
+                  example: '0'
                   nullable: false
                   enum:
                     - '0'
                     - '1'
               required:
                 - id
-                - name
   /api/user/admin/news/category/create:
     post:
       summary: 'Create Category.'
@@ -1079,12 +1066,12 @@ paths:
                 current_pin:
                   type: string
                   description: ''
-                  example: accusamus
+                  example: qui
                   nullable: false
                 pin:
                   type: string
                   description: 'Must not be greater than 4 characters.'
-                  example: stif
+                  example: nb
                   nullable: false
               required:
                 - current_pin
@@ -1105,7 +1092,7 @@ paths:
         in: path
         name: uuid
         description: ''
-        example: 47422c08-86fd-3281-ba5e-efa02dfe5b69
+        example: 3041e4b1-8c00-3110-a4fd-71f7a38bdade
         required: true
         schema:
           type: string
@@ -1335,7 +1322,7 @@ paths:
         in: path
         name: otp
         description: ''
-        example: voluptas
+        example: hic
         required: true
         schema:
           type: string

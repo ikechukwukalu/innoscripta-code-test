@@ -3285,7 +3285,7 @@ matching record.</p>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1:8000/api/user/news/article/user_read/ipsum/all" \
+    --get "http://127.0.0.1:8000/api/user/news/article/user_read/nihil/all" \
     --header "Authorization: Bearer {Your key}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3293,7 +3293,7 @@ matching record.</p>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/user/news/article/user_read/ipsum/all"
+    "http://127.0.0.1:8000/api/user/news/article/user_read/nihil/all"
 );
 
 const headers = {
@@ -3410,10 +3410,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="user_id"                data-endpoint="GETapi-user-news-article-user_read--user_id---id--"
-               value="ipsum"
+               value="nihil"
                data-component="url">
     <br>
-<p>The ID of the user. Example: <code>ipsum</code></p>
+<p>The ID of the user. Example: <code>nihil</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
@@ -3602,9 +3602,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id\": \"1\",
-    \"active\": \"0\",
-    \"name\": \"John\"
+    \"id\": \"itaque\",
+    \"active\": \"0\"
 }"
 </code></pre></div>
 
@@ -3621,9 +3620,8 @@ const headers = {
 };
 
 let body = {
-    "id": "1",
-    "active": "0",
-    "name": "John"
+    "id": "itaque",
+    "active": "0"
 };
 
 fetch(url, {
@@ -3735,10 +3733,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="PUTapi-user-admin-news-article-update"
-               value="1"
+               value="itaque"
                data-component="body">
     <br>
-<p>The id of the NewsArticle. Example: <code>1</code></p>
+<p>The <code>id</code> of an existing record in the news_articles table. Example: <code>itaque</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>active</code></b>&nbsp;&nbsp;
@@ -3752,17 +3750,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Example: <code>0</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>0</code></li> <li><code>1</code></li></ul>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="name"                data-endpoint="PUTapi-user-admin-news-article-update"
-               value="John"
-               data-component="body">
-    <br>
-<p>The name for the NewsArticle. Example: <code>John</code></p>
         </div>
         </form>
 
@@ -4095,10 +4082,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"id\": \"1\",
-    \"name\": \"John\",
-    \"url\": \"http:\\/\\/www.marks.com\\/voluptas-odio-reprehenderit-facilis-aperiam-magni-ut.html\",
-    \"active\": \"1\"
+    \"id\": \"ut\",
+    \"name\": \"irikydovkalce\",
+    \"url\": \"https:\\/\\/www.schowalter.org\\/necessitatibus-facere-explicabo-quibusdam-dolor-earum-aut-voluptatum\",
+    \"active\": \"0\"
 }"
 </code></pre></div>
 
@@ -4115,10 +4102,10 @@ const headers = {
 };
 
 let body = {
-    "id": "1",
-    "name": "John",
-    "url": "http:\/\/www.marks.com\/voluptas-odio-reprehenderit-facilis-aperiam-magni-ut.html",
-    "active": "1"
+    "id": "ut",
+    "name": "irikydovkalce",
+    "url": "https:\/\/www.schowalter.org\/necessitatibus-facere-explicabo-quibusdam-dolor-earum-aut-voluptatum",
+    "active": "0"
 };
 
 fetch(url, {
@@ -4230,21 +4217,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="PUTapi-user-admin-news-source-update"
-               value="1"
+               value="ut"
                data-component="body">
     <br>
-<p>The id of the NewsSource. Example: <code>1</code></p>
+<p>The <code>id</code> of an existing record in the news_sources table. Example: <code>ut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="PUTapi-user-admin-news-source-update"
-               value="John"
+               value="irikydovkalce"
                data-component="body">
     <br>
-<p>The name for the NewsSource. Example: <code>John</code></p>
+<p>Must not be greater than 150 characters. Example: <code>irikydovkalce</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
@@ -4252,10 +4239,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="url"                data-endpoint="PUTapi-user-admin-news-source-update"
-               value="http://www.marks.com/voluptas-odio-reprehenderit-facilis-aperiam-magni-ut.html"
+               value="https://www.schowalter.org/necessitatibus-facere-explicabo-quibusdam-dolor-earum-aut-voluptatum"
                data-component="body">
     <br>
-<p>Must be a valid URL. Must not be greater than 255 characters. Example: <code>http://www.marks.com/voluptas-odio-reprehenderit-facilis-aperiam-magni-ut.html</code></p>
+<p>Must be a valid URL. Must not be greater than 255 characters. Example: <code>https://www.schowalter.org/necessitatibus-facere-explicabo-quibusdam-dolor-earum-aut-voluptatum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>active</code></b>&nbsp;&nbsp;
@@ -4263,10 +4250,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="active"                data-endpoint="PUTapi-user-admin-news-source-update"
-               value="1"
+               value="0"
                data-component="body">
     <br>
-<p>Example: <code>1</code></p>
+<p>Example: <code>0</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>0</code></li> <li><code>1</code></li></ul>
         </div>
@@ -4292,9 +4279,8 @@ Must be one of:
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"type\": \"author\",
-    \"tag\": \"hbgqwgrtphgjpaky\",
-    \"name\": \"John\"
+    \"type\": \"category\",
+    \"tag\": \"sptnhwvarzcihixkwssqj\"
 }"
 </code></pre></div>
 
@@ -4311,9 +4297,8 @@ const headers = {
 };
 
 let body = {
-    "type": "author",
-    "tag": "hbgqwgrtphgjpaky",
-    "name": "John"
+    "type": "category",
+    "tag": "sptnhwvarzcihixkwssqj"
 };
 
 fetch(url, {
@@ -4425,10 +4410,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-user-preference-create"
-               value="author"
+               value="category"
                data-component="body">
     <br>
-<p>Example: <code>author</code></p>
+<p>Example: <code>category</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>source</code></li> <li><code>author</code></li> <li><code>category</code></li></ul>
         </div>
@@ -4438,21 +4423,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="tag"                data-endpoint="POSTapi-user-preference-create"
-               value="hbgqwgrtphgjpaky"
+               value="sptnhwvarzcihixkwssqj"
                data-component="body">
     <br>
-<p>Must not be greater than 150 characters. Example: <code>hbgqwgrtphgjpaky</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="name"                data-endpoint="POSTapi-user-preference-create"
-               value="John"
-               data-component="body">
-    <br>
-<p>The name of the UserPreference. Example: <code>John</code></p>
+<p>Must not be greater than 150 characters. Example: <code>sptnhwvarzcihixkwssqj</code></p>
         </div>
         </form>
 
@@ -4633,7 +4607,7 @@ matching record.</p>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1:8000/api/user/preference/user_read/iste/all" \
+    --get "http://127.0.0.1:8000/api/user/preference/user_read/eum/all" \
     --header "Authorization: Bearer {Your key}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4641,7 +4615,7 @@ matching record.</p>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/user/preference/user_read/iste/all"
+    "http://127.0.0.1:8000/api/user/preference/user_read/eum/all"
 );
 
 const headers = {
@@ -4758,10 +4732,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="user_id"                data-endpoint="GETapi-user-preference-user_read--user_id---id--"
-               value="iste"
+               value="eum"
                data-component="url">
     <br>
-<p>The ID of the user. Example: <code>iste</code></p>
+<p>The ID of the user. Example: <code>eum</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
@@ -5599,8 +5573,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"current_pin\": \"accusamus\",
-    \"pin\": \"stif\"
+    \"current_pin\": \"qui\",
+    \"pin\": \"nb\"
 }"
 </code></pre></div>
 
@@ -5616,8 +5590,8 @@ const headers = {
 };
 
 let body = {
-    "current_pin": "accusamus",
-    "pin": "stif"
+    "current_pin": "qui",
+    "pin": "nb"
 };
 
 fetch(url, {
@@ -5706,10 +5680,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="current_pin"                data-endpoint="POSTapi-change-pin"
-               value="accusamus"
+               value="qui"
                data-component="body">
     <br>
-<p>Example: <code>accusamus</code></p>
+<p>Example: <code>qui</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>pin</code></b>&nbsp;&nbsp;
@@ -5717,10 +5691,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="pin"                data-endpoint="POSTapi-change-pin"
-               value="stif"
+               value="nb"
                data-component="body">
     <br>
-<p>Must not be greater than 4 characters. Example: <code>stif</code></p>
+<p>Must not be greater than 4 characters. Example: <code>nb</code></p>
         </div>
         </form>
 
@@ -5737,14 +5711,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://127.0.0.1:8000/api/pin/required/47422c08-86fd-3281-ba5e-efa02dfe5b69" \
+    "http://127.0.0.1:8000/api/pin/required/3041e4b1-8c00-3110-a4fd-71f7a38bdade" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/pin/required/47422c08-86fd-3281-ba5e-efa02dfe5b69"
+    "http://127.0.0.1:8000/api/pin/required/3041e4b1-8c00-3110-a4fd-71f7a38bdade"
 );
 
 const headers = {
@@ -5837,10 +5811,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="uuid"                data-endpoint="POSTapi-pin-required--uuid-"
-               value="47422c08-86fd-3281-ba5e-efa02dfe5b69"
+               value="3041e4b1-8c00-3110-a4fd-71f7a38bdade"
                data-component="url">
     <br>
-<p>Example: <code>47422c08-86fd-3281-ba5e-efa02dfe5b69</code></p>
+<p>Example: <code>3041e4b1-8c00-3110-a4fd-71f7a38bdade</code></p>
             </div>
                     </form>
 
@@ -6694,14 +6668,14 @@ the config file.</p>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1:8000/api/auth/verify/phone/1/voluptas" \
+    --get "http://127.0.0.1:8000/api/auth/verify/phone/1/hic" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/auth/verify/phone/1/voluptas"
+    "http://127.0.0.1:8000/api/auth/verify/phone/1/hic"
 );
 
 const headers = {
@@ -6818,10 +6792,10 @@ Field must belong to a registered User. Example: <code>1</code></p>
  &nbsp;
                 <input type="text" style="display: none"
                               name="otp"                data-endpoint="GETapi-auth-verify-phone--id---otp-"
-               value="voluptas"
+               value="hic"
                data-component="url">
     <br>
-<p>Example: <code>voluptas</code></p>
+<p>Example: <code>hic</code></p>
             </div>
                     </form>
 

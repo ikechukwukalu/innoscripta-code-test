@@ -19,9 +19,6 @@ class NewsArticleController extends Controller
      *
      * @header Authorization Bearer {Your key}
      *
-     * @bodyParam id string required The id of the NewsArticle. Example: 1
-     * @bodyParam name string required The name for the NewsArticle. Example: John
-     *
      * @response 200
      *
      * {

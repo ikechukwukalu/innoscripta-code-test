@@ -28,7 +28,7 @@ endpoints:
         name: current_pin
         description: ''
         required: true
-        example: accusamus
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -38,15 +38,15 @@ endpoints:
         name: pin
         description: 'Must not be greater than 4 characters.'
         required: true
-        example: stif
+        example: nb
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      current_pin: accusamus
-      pin: stif
+      current_pin: qui
+      pin: nb
     fileParameters: []
     responses: []
     responseFields: []
@@ -76,14 +76,14 @@ endpoints:
         name: uuid
         description: ''
         required: true
-        example: 47422c08-86fd-3281-ba5e-efa02dfe5b69
+        example: 3041e4b1-8c00-3110-a4fd-71f7a38bdade
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      uuid: 47422c08-86fd-3281-ba5e-efa02dfe5b69
+      uuid: 3041e4b1-8c00-3110-a4fd-71f7a38bdade
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

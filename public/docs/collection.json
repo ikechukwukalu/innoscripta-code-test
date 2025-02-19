@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Innoscripta-Code-Test",
-        "_postman_id": "0dd6116b-7de3-4b65-bb83-5748b9bd52b7",
+        "_postman_id": "ce11724c-98b8-4fef-bfd1-c15bdf7d3f8f",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -799,7 +799,7 @@
                                         {
                                             "id": "user_id",
                                             "key": "user_id",
-                                            "value": "ipsum",
+                                            "value": "nihil",
                                             "description": "The ID of the user."
                                         },
                                         {
@@ -902,7 +902,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"id\":\"1\",\"active\":\"0\",\"name\":\"John\"}"
+                                    "raw": "{\"id\":\"itaque\",\"active\":\"0\"}"
                                 },
                                 "description": ""
                             },
@@ -1030,7 +1030,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"id\":\"1\",\"name\":\"John\",\"url\":\"http:\\\/\\\/www.marks.com\\\/voluptas-odio-reprehenderit-facilis-aperiam-magni-ut.html\",\"active\":\"1\"}"
+                                    "raw": "{\"id\":\"ut\",\"name\":\"irikydovkalce\",\"url\":\"https:\\\/\\\/www.schowalter.org\\\/necessitatibus-facere-explicabo-quibusdam-dolor-earum-aut-voluptatum\",\"active\":\"0\"}"
                                 },
                                 "description": ""
                             },
@@ -1075,7 +1075,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"type\":\"author\",\"tag\":\"hbgqwgrtphgjpaky\",\"name\":\"John\"}"
+                                    "raw": "{\"type\":\"category\",\"tag\":\"sptnhwvarzcihixkwssqj\"}"
                                 },
                                 "description": ""
                             },
@@ -1139,7 +1139,7 @@
                                         {
                                             "id": "user_id",
                                             "key": "user_id",
-                                            "value": "iste",
+                                            "value": "eum",
                                             "description": "The ID of the user."
                                         },
                                         {
@@ -1418,7 +1418,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"current_pin\":\"accusamus\",\"pin\":\"stif\"}"
+                            "raw": "{\"current_pin\":\"qui\",\"pin\":\"nb\"}"
                         },
                         "description": "",
                         "auth": {
@@ -1439,7 +1439,7 @@
                                 {
                                     "id": "uuid",
                                     "key": "uuid",
-                                    "value": "47422c08-86fd-3281-ba5e-efa02dfe5b69",
+                                    "value": "3041e4b1-8c00-3110-a4fd-71f7a38bdade",
                                     "description": ""
                                 }
                             ]
@@ -1706,7 +1706,7 @@
                                 {
                                     "id": "otp",
                                     "key": "otp",
-                                    "value": "voluptas",
+                                    "value": "hic",
                                     "description": ""
                                 }
                             ]
