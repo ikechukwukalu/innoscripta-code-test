@@ -85,23 +85,8 @@ class NewsApiService extends NewsOutletService
                                     'imageUrl' => $article['urlToImage'],
                                     'contentIsUrl' => false,
                                     'active' => true,
+                                    'authors' => $article['author'],
                                 ];
-                            }
-
-                            if (isset($article['author'])) {
-                                $authors = explode(',', $article['author']);
-
-                                foreach ($authors as $author) {
-                                    if (!AuthorFacade::getByUniqueId($author)) {
-                                        $this->authorInserts[] = [
-                                            'name' => $author,
-                                            'twitter' => null,
-                                            'website' => null,
-                                            'imageUrl' => null,
-                                            'batch_no' => $batchNo,
-                                        ];
-                                    }
-                                }
                             }
 
                             return $article;
@@ -113,15 +98,6 @@ class NewsApiService extends NewsOutletService
 
             }
 
-            $authorIds = AuthorFacade::getByBatchNo($batchNo)->pluck('id')->toArray();
-
-            foreach ($authorIds as $authorId) {
-                $this->newsArticleInserts[] = [
-                    'author_id' => $authorId,
-                    'news_source_id' => $newSource->id,
-                ];
-            }
-
             $message = trans('general.success');
             $index = $categories[0]->id;
 
@@ -130,8 +106,6 @@ class NewsApiService extends NewsOutletService
             }
 
             $this->saveArticles();
-            $this->saveAuthors();
-            $this->saveNewsAuthors();
 
             return responseData($responses[$index]->ok(), $responses[$index]->getStatusCode(), $message, $this->newsArticleInserts);
         }, function (\Throwable $th) {

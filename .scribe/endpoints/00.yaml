@@ -26,7 +26,7 @@ endpoints:
         name: current_pin
         description: ''
         required: true
-        example: magnam
+        example: accusamus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -36,15 +36,15 @@ endpoints:
         name: pin
         description: 'Must not be greater than 4 characters.'
         required: true
-        example: d
+        example: stif
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      current_pin: magnam
-      pin: d
+      current_pin: accusamus
+      pin: stif
     fileParameters: []
     responses: []
     responseFields: []
@@ -74,14 +74,14 @@ endpoints:
         name: uuid
         description: ''
         required: true
-        example: 3f785baa-8ad3-3fa3-a7be-129addee4db6
+        example: 47422c08-86fd-3281-ba5e-efa02dfe5b69
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      uuid: 3f785baa-8ad3-3fa3-a7be-129addee4db6
+      uuid: 47422c08-86fd-3281-ba5e-efa02dfe5b69
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

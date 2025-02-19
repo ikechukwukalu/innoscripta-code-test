@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('user_preferences', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->morphs('preferential');
+            $table->string('tag');
             $table->enum('type', UserPreferenceType::toArray());
             $table->boolean('active')->default(true);
             $table->softDeletes();

@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Innoscripta-Code-Test",
-        "_postman_id": "42f553e9-473e-4ace-8678-d7f88fc70caa",
+        "_postman_id": "0dd6116b-7de3-4b65-bb83-5748b9bd52b7",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -738,6 +738,657 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "name": "NewsArticle APIs",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "Read NewsArticle.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/user\/news\/article\/read\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/user\/news\/article\/read\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "all",
+                                            "description": "The ID of the record."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {Your key}"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "Fetch a record or records from the NewsArticles table.\nThe <b>id<\/b> param is optional but can either be a <b>string|null|int<\/b>\n\nIf the <b>id<\/b> has a <b>null<\/b> value the records will be paginated.\nThe returned page size is be set from <b>api.paginate.user_address.pageSize<\/b>\nconfig.\n\nIf the <b>id<\/b> is a <b>string<\/b> value it can only be set as <b>'all'<\/b>.\nThis will return all the records without being paginated.\n\nIf the <b>id<\/b> value is an <b>integer<\/b> it will try to fetch a single\nmatching record."
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Read NewsArticle by UserID.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/user\/news\/article\/user_read\/:user_id\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/user\/news\/article\/user_read\/:user_id\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "user_id",
+                                            "key": "user_id",
+                                            "value": "ipsum",
+                                            "description": "The ID of the user."
+                                        },
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "all",
+                                            "description": "The ID of the record."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {Your key}"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "Fetch a record or records from the Payouts table.\nThe <b>id<\/b> param is optional but can either be a <b>string|null|int<\/b>\n\nIf the <b>id<\/b> has a <b>null<\/b> value the records will be paginated.\nThe returned page size is be set from <b>api.paginate.user_address.pageSize<\/b>\nconfig.\n\nIf the <b>id<\/b> is a <b>string<\/b> value it can only be set as <b>'all'<\/b>.\nThis will return all the records without being paginated.\n\nIf the <b>id<\/b> value is an <b>integer<\/b> it will try to fetch a single\nmatching record."
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Delete NewsArticle.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/user\/admin\/news\/article\/delete",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/user\/admin\/news\/article\/delete"
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {Your key}"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"id\":\"1\"}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Update NewsArticle.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/user\/admin\/news\/article\/update",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/user\/admin\/news\/article\/update"
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {Your key}"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"id\":\"1\",\"active\":\"0\",\"name\":\"John\"}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}",
+                                    "name": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "NewsSource APIs",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "Read NewsSource.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/user\/news\/source\/read\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/user\/news\/source\/read\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "all",
+                                            "description": "The ID of the record."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {Your key}"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "Fetch a record or records from the NewsSources table.\nThe <b>id<\/b> param is optional but can either be a <b>string|null|int<\/b>\n\nIf the <b>id<\/b> has a <b>null<\/b> value the records will be paginated.\nThe returned page size is be set from <b>api.paginate.user_address.pageSize<\/b>\nconfig.\n\nIf the <b>id<\/b> is a <b>string<\/b> value it can only be set as <b>'all'<\/b>.\nThis will return all the records without being paginated.\n\nIf the <b>id<\/b> value is an <b>integer<\/b> it will try to fetch a single\nmatching record."
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Delete NewsSource.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/user\/admin\/news\/source\/delete",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/user\/admin\/news\/source\/delete"
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {Your key}"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"id\":\"1\"}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Update NewsSource.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/user\/admin\/news\/source\/update",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/user\/admin\/news\/source\/update"
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {Your key}"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"id\":\"1\",\"name\":\"John\",\"url\":\"http:\\\/\\\/www.marks.com\\\/voluptas-odio-reprehenderit-facilis-aperiam-magni-ut.html\",\"active\":\"1\"}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}",
+                                    "name": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "UserPreference APIs",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "Create UserPreference.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/user\/preference\/create",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/user\/preference\/create"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {Your key}"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"type\":\"author\",\"tag\":\"hbgqwgrtphgjpaky\",\"name\":\"John\"}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Delete UserPreference.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/user\/preference\/delete",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/user\/preference\/delete"
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {Your key}"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"id\":\"1\"}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Read UserPreference by UserID.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/user\/preference\/user_read\/:user_id\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/user\/preference\/user_read\/:user_id\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "user_id",
+                                            "key": "user_id",
+                                            "value": "iste",
+                                            "description": "The ID of the user."
+                                        },
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "all",
+                                            "description": "The ID of the record."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {Your key}"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "Fetch a record or records from the Payouts table.\nThe <b>id<\/b> param is optional but can either be a <b>string|null|int<\/b>\n\nIf the <b>id<\/b> has a <b>null<\/b> value the records will be paginated.\nThe returned page size is be set from <b>api.paginate.user_address.pageSize<\/b>\nconfig.\n\nIf the <b>id<\/b> is a <b>string<\/b> value it can only be set as <b>'all'<\/b>.\nThis will return all the records without being paginated.\n\nIf the <b>id<\/b> value is an <b>integer<\/b> it will try to fetch a single\nmatching record."
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Read UserPreference.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/user\/admin\/preference\/read\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/user\/admin\/preference\/read\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "all",
+                                            "description": "The ID of the record."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {Your key}"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "Fetch a record or records from the UserPreferences table.\nThe <b>id<\/b> param is optional but can either be a <b>string|null|int<\/b>\n\nIf the <b>id<\/b> has a <b>null<\/b> value the records will be paginated.\nThe returned page size is be set from <b>api.paginate.user_address.pageSize<\/b>\nconfig.\n\nIf the <b>id<\/b> is a <b>string<\/b> value it can only be set as <b>'all'<\/b>.\nThis will return all the records without being paginated.\n\nIf the <b>id<\/b> value is an <b>integer<\/b> it will try to fetch a single\nmatching record."
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}",
+                                    "name": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Category APIs",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "Create Category.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/user\/admin\/news\/category\/create",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/user\/admin\/news\/category\/create"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {Your key}"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"name\":\"John\"}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Delete Category.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/user\/admin\/news\/category\/delete",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/user\/admin\/news\/category\/delete"
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {Your key}"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"id\":\"1\"}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Update Category.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/user\/admin\/news\/category\/update",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/user\/admin\/news\/category\/update"
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {Your key}"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"id\":\"1\",\"name\":\"John\",\"active\":\"1\"}"
+                                },
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Read Category.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/category\/read\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/category\/read\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "all",
+                                            "description": "The ID of the record."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "Bearer {Your key}"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "Fetch a record or records from the Categorys table.\nThe <b>id<\/b> param is optional but can either be a <b>string|null|int<\/b>\n\nIf the <b>id<\/b> has a <b>null<\/b> value the records will be paginated.\nThe returned page size is be set from <b>api.paginate.user_address.pageSize<\/b>\nconfig.\n\nIf the <b>id<\/b> is a <b>string<\/b> value it can only be set as <b>'all'<\/b>.\nThis will return all the records without being paginated.\n\nIf the <b>id<\/b> value is an <b>integer<\/b> it will try to fetch a single\nmatching record."
+                            },
+                            "response": [
+                                {
+                                    "header": [],
+                                    "code": 200,
+                                    "body": "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}",
+                                    "name": ""
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -767,7 +1418,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"current_pin\":\"magnam\",\"pin\":\"d\"}"
+                            "raw": "{\"current_pin\":\"accusamus\",\"pin\":\"stif\"}"
                         },
                         "description": "",
                         "auth": {
@@ -788,7 +1439,7 @@
                                 {
                                     "id": "uuid",
                                     "key": "uuid",
-                                    "value": "3f785baa-8ad3-3fa3-a7be-129addee4db6",
+                                    "value": "47422c08-86fd-3281-ba5e-efa02dfe5b69",
                                     "description": ""
                                 }
                             ]
@@ -1055,7 +1706,7 @@
                                 {
                                     "id": "otp",
                                     "key": "otp",
-                                    "value": "nihil",
+                                    "value": "voluptas",
                                     "description": ""
                                 }
                             ]
@@ -1133,9 +1784,9 @@
                             "request": {
                                 "url": {
                                     "host": "{{baseUrl}}",
-                                    "path": "api\/auth\/create",
+                                    "path": "api\/create",
                                     "query": [],
-                                    "raw": "{{baseUrl}}\/api\/auth\/create"
+                                    "raw": "{{baseUrl}}\/api\/create"
                                 },
                                 "method": "POST",
                                 "header": [

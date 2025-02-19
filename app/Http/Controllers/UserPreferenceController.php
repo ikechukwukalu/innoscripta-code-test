@@ -103,7 +103,7 @@ class UserPreferenceController extends Controller
     }
 
     /**
-     * Read UserPreference.
+     * Read UserPreference by UserID.
      *
      * Fetch a record or records from the Payouts table.
      * The <b>id</b> param is optional but can either be a <b>string|null|int</b>
@@ -135,9 +135,9 @@ class UserPreferenceController extends Controller
      * @subgroup UserPreference APIs
      * @group Auth APIs
      */
-    public function readByUserId(UserPreferenceReadRequest $request, null|string|int $id = null): JsonResponse
+    public function readByUserId(UserPreferenceReadRequest $request, string|int $userId, null|string|int $id = null): JsonResponse
     {
-        return $this->_readByUserId($this->userPreferenceService, $id);
+        return $this->_readByUserId($this->userPreferenceService, $userId,$id);
     }
 
 }

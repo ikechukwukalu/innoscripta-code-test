@@ -3,12 +3,16 @@
 namespace App\Repositories;
 
 use App\Contracts\NewsArticleRepositoryInterface;
+use App\Enums\UserPreferenceType;
+use App\Facades\UserPreference as UserPreferenceFacade;
 use App\Models\NewsArticle;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class NewsArticleRepository implements NewsArticleRepositoryInterface
 {
+    private array $whiteList = ['news_source_id', 'category_id', 'published_at', 'archived_at'];
 
     /**
      * Fetch all \App\Models\NewsArticle records.
@@ -17,7 +21,7 @@ class NewsArticleRepository implements NewsArticleRepositoryInterface
      */
     public function getAll(): EloquentCollection
     {
-        return NewsArticle::all();
+        return $this->filterOptions()->get();
     }
 
     /**
@@ -85,7 +89,7 @@ class NewsArticleRepository implements NewsArticleRepositoryInterface
      */
     public function getPaginated(int|string $pageSize): LengthAwarePaginator
     {
-        return NewsArticle::paginate($pageSize);
+        return $this->filterOptions()->paginate(pageSize($pageSize));
     }
 
     /**
@@ -108,5 +112,94 @@ class NewsArticleRepository implements NewsArticleRepositoryInterface
     public function getBySourceExternalId(string $sourceExternalId): null|NewsArticle
     {
         return NewsArticle::where('source_external_id', $sourceExternalId)->first();
+    }
+
+    public function getByUserIdPaginated(string|int $userId, int $pageSize): LengthAwarePaginator
+    {
+        return $this->preferenceOptions($userId, 'paginate');
+    }
+
+    /**
+     * Fetch all \App\Models\PartnerDriver records by user id.
+     *
+     * @param string|int $userId
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function getByUserId(string|int $userId): EloquentCollection
+    {
+        return $this->preferenceOptions($userId, 'all');
+    }
+
+    /**
+     * Fetch \App\Models\Consolidation record by ID.
+     *
+     * @param string|int $userId
+     * @param int $id
+     * @return \App\Models\NewsArticle|null
+     */
+    public function getByUserIdAndId(string|int $userId, int $id): null|NewsArticle
+    {
+        return NewsArticle::where('id', $id)->first();
+    }
+
+    /**
+     * Summary of filterOptions
+     * @return mixed
+     */
+    private function filterOptions(): mixed
+    {
+        return NewsArticle::with(['newsSource', 'category'])
+                    ->search(['title', 'description', 'content', 'authors', 'news_source_name', 'category_name'])
+                    ->order()
+                    ->date()
+                    ->filter($this->whiteList);
+    }
+
+    private function preferenceOptions(int|string $userId, string $type = 'all'): mixed
+    {
+        if (!$userPreferences = UserPreferenceFacade::getByUserId($userId)->keyBy('type')) {
+
+            if ($type == 'all') {
+                return NewsArticle::all();
+            }
+
+            return NewsArticle::paginate();
+
+        }
+
+        $ary = $userPreferences->toArray();
+        $builder = NewsArticle::query();
+
+        if (array_key_exists(UserPreferenceType::SOURCE->value, $ary))
+        {
+            $builder->where(function(Builder $query) use($userPreferences) {
+                $query->orWhereIn('news_source_name', $userPreferences[UserPreferenceType::SOURCE->value]->pluck('tag')->toArray());
+            });
+        }
+
+        if (array_key_exists(UserPreferenceType::CATEGORY->value, $ary))
+        {
+            $builder->where(function(Builder $query) use($userPreferences) {
+                $query->orWhereIn('category_name', $userPreferences[UserPreferenceType::CATEGORY->value]->pluck('tag')->toArray());
+            });
+        }
+
+        if (array_key_exists(UserPreferenceType::AUTHOR->value, $ary))
+        {
+            $builder->where(function(Builder $query) use($userPreferences) {
+                $authors = $userPreferences[UserPreferenceType::AUTHOR->value]->pluck('tag')->toArray();
+
+                foreach ($authors as $author) {
+                    $query->orWhere('authors', 'LIKE', "%{$author}%");
+                }
+
+            });
+        }
+
+        if ($type == 'all') {
+            return $builder->get();
+        }
+
+        return $builder->paginate();
     }
 }

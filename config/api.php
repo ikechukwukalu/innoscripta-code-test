@@ -14,9 +14,6 @@ return [
         'category' => [
             'pageSize' => 10,
         ],
-        'author' => [
-            'pageSize' => 10,
-        ],
         'news_article' => [
             'pageSize' => 10,
         ],

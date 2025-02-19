@@ -1077,3 +1077,1015 @@ endpoints:
     method: null
     route: null
     custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/user/news/article/read/{id?}'
+    metadata:
+      groupName: 'Auth APIs'
+      groupDescription: ''
+      subgroup: 'NewsArticle APIs'
+      subgroupDescription: ''
+      title: 'Read NewsArticle.'
+      description: |-
+        Fetch a record or records from the NewsArticles table.
+        The <b>id</b> param is optional but can either be a <b>string|null|int</b>
+
+        If the <b>id</b> has a <b>null</b> value the records will be paginated.
+        The returned page size is be set from <b>api.paginate.user_address.pageSize</b>
+        config.
+
+        If the <b>id</b> is a <b>string</b> value it can only be set as <b>'all'</b>.
+        This will return all the records without being paginated.
+
+        If the <b>id</b> value is an <b>integer</b> it will try to fetch a single
+        matching record.
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {Your key}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the record.'
+        required: false
+        example: all
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: all
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "status_code": 200,
+          "message": string
+          "data": {}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/user/news/article/user_read/{user_id}/{id?}'
+    metadata:
+      groupName: 'Auth APIs'
+      groupDescription: ''
+      subgroup: 'NewsArticle APIs'
+      subgroupDescription: ''
+      title: 'Read NewsArticle by UserID.'
+      description: |-
+        Fetch a record or records from the Payouts table.
+        The <b>id</b> param is optional but can either be a <b>string|null|int</b>
+
+        If the <b>id</b> has a <b>null</b> value the records will be paginated.
+        The returned page size is be set from <b>api.paginate.user_address.pageSize</b>
+        config.
+
+        If the <b>id</b> is a <b>string</b> value it can only be set as <b>'all'</b>.
+        This will return all the records without being paginated.
+
+        If the <b>id</b> value is an <b>integer</b> it will try to fetch a single
+        matching record.
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {Your key}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user_id:
+        name: user_id
+        description: 'The ID of the user.'
+        required: true
+        example: ipsum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the record.'
+        required: false
+        example: all
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      user_id: ipsum
+      id: all
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "status_code": 200,
+          "message": string
+          "data": {}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/user/news/source/read/{id?}'
+    metadata:
+      groupName: 'Auth APIs'
+      groupDescription: ''
+      subgroup: 'NewsSource APIs'
+      subgroupDescription: ''
+      title: 'Read NewsSource.'
+      description: |-
+        Fetch a record or records from the NewsSources table.
+        The <b>id</b> param is optional but can either be a <b>string|null|int</b>
+
+        If the <b>id</b> has a <b>null</b> value the records will be paginated.
+        The returned page size is be set from <b>api.paginate.user_address.pageSize</b>
+        config.
+
+        If the <b>id</b> is a <b>string</b> value it can only be set as <b>'all'</b>.
+        This will return all the records without being paginated.
+
+        If the <b>id</b> value is an <b>integer</b> it will try to fetch a single
+        matching record.
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {Your key}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the record.'
+        required: false
+        example: all
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: all
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "status_code": 200,
+          "message": string
+          "data": {}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/user/preference/create
+    metadata:
+      groupName: 'Auth APIs'
+      groupDescription: ''
+      subgroup: 'UserPreference APIs'
+      subgroupDescription: ''
+      title: 'Create UserPreference.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {Your key}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      type:
+        name: type
+        description: ''
+        required: true
+        example: author
+        type: string
+        enumValues:
+          - source
+          - author
+          - category
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      tag:
+        name: tag
+        description: 'Must not be greater than 150 characters.'
+        required: true
+        example: hbgqwgrtphgjpaky
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      name:
+        name: name
+        description: 'The name of the UserPreference.'
+        required: true
+        example: John
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      type: author
+      tag: hbgqwgrtphgjpaky
+      name: John
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "status_code": 200,
+          "message": string
+          "data": {}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: api/user/preference/delete
+    metadata:
+      groupName: 'Auth APIs'
+      groupDescription: ''
+      subgroup: 'UserPreference APIs'
+      subgroupDescription: ''
+      title: 'Delete UserPreference.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {Your key}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'The id of the UserPreference.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      id: '1'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "status_code": 200,
+          "message": string
+          "data": {}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/user/preference/user_read/{user_id}/{id?}'
+    metadata:
+      groupName: 'Auth APIs'
+      groupDescription: ''
+      subgroup: 'UserPreference APIs'
+      subgroupDescription: ''
+      title: 'Read UserPreference by UserID.'
+      description: |-
+        Fetch a record or records from the Payouts table.
+        The <b>id</b> param is optional but can either be a <b>string|null|int</b>
+
+        If the <b>id</b> has a <b>null</b> value the records will be paginated.
+        The returned page size is be set from <b>api.paginate.user_address.pageSize</b>
+        config.
+
+        If the <b>id</b> is a <b>string</b> value it can only be set as <b>'all'</b>.
+        This will return all the records without being paginated.
+
+        If the <b>id</b> value is an <b>integer</b> it will try to fetch a single
+        matching record.
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {Your key}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user_id:
+        name: user_id
+        description: 'The ID of the user.'
+        required: true
+        example: iste
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the record.'
+        required: false
+        example: all
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      user_id: iste
+      id: all
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "status_code": 200,
+          "message": string
+          "data": {}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: api/user/admin/news/article/delete
+    metadata:
+      groupName: 'Auth APIs'
+      groupDescription: ''
+      subgroup: 'NewsArticle APIs'
+      subgroupDescription: ''
+      title: 'Delete NewsArticle.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {Your key}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'The id of the NewsArticle.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      id: '1'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "status_code": 200,
+          "message": string
+          "data": {}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: api/user/admin/news/article/update
+    metadata:
+      groupName: 'Auth APIs'
+      groupDescription: ''
+      subgroup: 'NewsArticle APIs'
+      subgroupDescription: ''
+      title: 'Update NewsArticle.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {Your key}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'The id of the NewsArticle.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      active:
+        name: active
+        description: ''
+        required: true
+        example: '0'
+        type: string
+        enumValues:
+          - '0'
+          - '1'
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      name:
+        name: name
+        description: 'The name for the NewsArticle.'
+        required: true
+        example: John
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      id: '1'
+      active: '0'
+      name: John
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "status_code": 200,
+          "message": string
+          "data": {}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: api/user/admin/news/source/delete
+    metadata:
+      groupName: 'Auth APIs'
+      groupDescription: ''
+      subgroup: 'NewsSource APIs'
+      subgroupDescription: ''
+      title: 'Delete NewsSource.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {Your key}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'The id of the NewsSource.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      id: '1'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "status_code": 200,
+          "message": string
+          "data": {}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: api/user/admin/news/source/update
+    metadata:
+      groupName: 'Auth APIs'
+      groupDescription: ''
+      subgroup: 'NewsSource APIs'
+      subgroupDescription: ''
+      title: 'Update NewsSource.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {Your key}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'The id of the NewsSource.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      name:
+        name: name
+        description: 'The name for the NewsSource.'
+        required: true
+        example: John
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      url:
+        name: url
+        description: 'Must be a valid URL. Must not be greater than 255 characters.'
+        required: false
+        example: 'http://www.marks.com/voluptas-odio-reprehenderit-facilis-aperiam-magni-ut.html'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      active:
+        name: active
+        description: ''
+        required: false
+        example: '1'
+        type: string
+        enumValues:
+          - '0'
+          - '1'
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      id: '1'
+      name: John
+      url: 'http://www.marks.com/voluptas-odio-reprehenderit-facilis-aperiam-magni-ut.html'
+      active: '1'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "status_code": 200,
+          "message": string
+          "data": {}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/user/admin/news/category/create
+    metadata:
+      groupName: 'Auth APIs'
+      groupDescription: ''
+      subgroup: 'Category APIs'
+      subgroupDescription: ''
+      title: 'Create Category.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {Your key}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The name of the Category.'
+        required: true
+        example: John
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: John
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "status_code": 200,
+          "message": string
+          "data": {}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: api/user/admin/news/category/delete
+    metadata:
+      groupName: 'Auth APIs'
+      groupDescription: ''
+      subgroup: 'Category APIs'
+      subgroupDescription: ''
+      title: 'Delete Category.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {Your key}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'The id of the Category.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      id: '1'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "status_code": 200,
+          "message": string
+          "data": {}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: api/user/admin/news/category/update
+    metadata:
+      groupName: 'Auth APIs'
+      groupDescription: ''
+      subgroup: 'Category APIs'
+      subgroupDescription: ''
+      title: 'Update Category.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {Your key}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'The id of the Category.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      name:
+        name: name
+        description: 'The name for the Category.'
+        required: true
+        example: John
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      active:
+        name: active
+        description: ''
+        required: false
+        example: '1'
+        type: string
+        enumValues:
+          - '0'
+          - '1'
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      id: '1'
+      name: John
+      active: '1'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "status_code": 200,
+          "message": string
+          "data": {}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/user/admin/preference/read/{id?}'
+    metadata:
+      groupName: 'Auth APIs'
+      groupDescription: ''
+      subgroup: 'UserPreference APIs'
+      subgroupDescription: ''
+      title: 'Read UserPreference.'
+      description: |-
+        Fetch a record or records from the UserPreferences table.
+        The <b>id</b> param is optional but can either be a <b>string|null|int</b>
+
+        If the <b>id</b> has a <b>null</b> value the records will be paginated.
+        The returned page size is be set from <b>api.paginate.user_address.pageSize</b>
+        config.
+
+        If the <b>id</b> is a <b>string</b> value it can only be set as <b>'all'</b>.
+        This will return all the records without being paginated.
+
+        If the <b>id</b> value is an <b>integer</b> it will try to fetch a single
+        matching record.
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {Your key}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the record.'
+        required: false
+        example: all
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: all
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "status_code": 200,
+          "message": string
+          "data": {}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/category/read/{id?}'
+    metadata:
+      groupName: 'Auth APIs'
+      groupDescription: ''
+      subgroup: 'Category APIs'
+      subgroupDescription: ''
+      title: 'Read Category.'
+      description: |-
+        Fetch a record or records from the Categorys table.
+        The <b>id</b> param is optional but can either be a <b>string|null|int</b>
+
+        If the <b>id</b> has a <b>null</b> value the records will be paginated.
+        The returned page size is be set from <b>api.paginate.user_address.pageSize</b>
+        config.
+
+        If the <b>id</b> is a <b>string</b> value it can only be set as <b>'all'</b>.
+        This will return all the records without being paginated.
+
+        If the <b>id</b> value is an <b>integer</b> it will try to fetch a single
+        matching record.
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {Your key}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the record.'
+        required: false
+        example: all
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: all
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "status_code": 200,
+          "message": string
+          "data": {}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

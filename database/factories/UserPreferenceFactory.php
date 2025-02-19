@@ -20,9 +20,7 @@ class UserPreferenceFactory extends Factory
         return [
             'user_id' => 1,
             'type' => 'source',
-            'preferential_id' => 1,
-            'preferential_type' => NewsApi::class,
-            'active' => true
+            'tag' => 'News Api',
         ];
     }
 }

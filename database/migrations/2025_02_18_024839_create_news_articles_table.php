@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('title');
             $table->text('description');
             $table->longText('content');
+            $table->text('authors')->nullable();
             $table->string('imageUrl')->nullable();
             $table->boolean('active')->default(true);
             $table->boolean('contentIsUrl')->default(false);

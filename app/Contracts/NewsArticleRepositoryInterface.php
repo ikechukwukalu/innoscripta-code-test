@@ -81,4 +81,30 @@ interface NewsArticleRepositoryInterface
      * @return \App\Models\NewsArticle|null
      */
     public function getBySourceExternalId(string $sourceExternalId): null|NewsArticle;
+
+    /**
+     * Update \App\Models\NewsArticle  record.
+     *
+     * @param string|int $userId
+     * @param int $pageSize
+     * @return \Illuminate\Pagination\LengthAwarePaginator
+     */
+    public function getByUserIdPaginated(string|int $userId, int $pageSize): LengthAwarePaginator;
+
+    /**
+     * Fetch all \App\Models\NewsArticle  records by user id.
+     *
+     * @param string|int $userId
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function getByUserId(string|int $userId): EloquentCollection;
+
+    /**
+     * Fetch \App\Models\NewsArticle record by ID.
+     *
+     * @param string|int $userId
+     * @param int $id
+     * @return \App\Models\NewsArticle|null
+     */
+    public function getByUserIdAndId(string|int $userId, int $id): null|NewsArticle;
 }

@@ -9,7 +9,6 @@ use App\Contracts\ContactUsRepositoryInterface;
 use App\Contracts\CustomerRepositoryInterface;
 use App\Contracts\DBRepositoryInterface;
 use App\Contracts\NewsArticleRepositoryInterface;
-use App\Contracts\NewsAuthorRepositoryInterface;
 use App\Contracts\NewsSourceRepositoryInterface;
 use App\Contracts\OldPasswordRepositoryInterface;
 use App\Contracts\SocialiteLoginRepositoryInterface;
@@ -25,7 +24,6 @@ use App\Repositories\ContactUsRepository;
 use App\Repositories\CustomerRepository;
 use App\Repositories\DBRepository;
 use App\Repositories\NewsArticleRepository;
-use App\Repositories\NewsAuthorRepository;
 use App\Repositories\NewsSourceRepository;
 use App\Repositories\OldPasswordRepository;
 use App\Repositories\SocialiteLoginRepository;
@@ -58,7 +56,6 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
         $this->app->bind(AuthorRepositoryInterface::class, AuthorRepository::class);
         $this->app->bind(UserPreferenceRepositoryInterface::class, UserPreferenceRepository::class);
-        $this->app->bind(NewsAuthorRepositoryInterface::class, NewsAuthorRepository::class);
     }
 
     /**

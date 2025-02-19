@@ -26,20 +26,7 @@ class UserPreferenceService extends BasicCrudService
     {
         $user = Auth::user();
         $validated = $request->validated();
-        $sourceType = null;
-
-        if (empty($validated)) {
-            return responseData(false, Response::HTTP_BAD_REQUEST, trans('general.empty_payload'));
-        }
-
-        if (isset($validated['source_type'])) {
-            $sourceType = $validated['source_type'];
-
-            unset($validated['source_type']);
-        }
-
         $validated['user_id'] = $user->id;
-        $validated['preferential_type'] = UserPreferenceType::getTypeModel($validated['type'], $sourceType);
 
         return $this->create($validated, $this->userPreferenceRepository);
     }
@@ -69,11 +56,11 @@ class UserPreferenceService extends BasicCrudService
     /**
      * Handle the read request.
      *
-     * @param int $userId
+     * @param string | int $userId
      * @param null|string|int $id
      * @return ResponseData
      */
-    public function handleReadByUserId(int $userId, null | string | int $id = null): ResponseData
+    public function handleReadByUserId(string | int $userId, null | string | int $id = null): ResponseData
     {
         return $this->readByUserId($this->userPreferenceRepository, 'user_preference', $userId, $id);
     }

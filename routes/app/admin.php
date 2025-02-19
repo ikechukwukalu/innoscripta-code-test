@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NewsArticleController;
 use App\Http\Controllers\NewsSourceController;
@@ -30,14 +29,6 @@ Route::prefix('user/admin')->middleware(['check.user.is.admin'])->group(function
             Route::post('create', [CategoryController::class, 'create'])->name('createCategory');
             Route::delete('delete', [CategoryController::class, 'delete'])->name('deleteCategory');
             Route::put('update', [CategoryController::class, 'update'])->name('updateCategory');
-
-        });
-
-        Route::prefix('author')->group(function () {
-
-            Route::post('create', [AuthorController::class, 'create'])->name('createAuthor');
-            Route::delete('delete', [AuthorController::class, 'delete'])->name('deleteAuthor');
-            Route::put('update', [AuthorController::class, 'update'])->name('updateAuthor');
 
         });
 

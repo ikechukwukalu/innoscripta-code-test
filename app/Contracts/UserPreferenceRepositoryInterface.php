@@ -69,26 +69,26 @@ interface UserPreferenceRepositoryInterface
     /**
      * Update \App\Models\UserPreference  record.
      *
-     * @param int $userId
+     * @param string|int $userId
      * @param int $pageSize
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
-    public function getByUserIdPaginated(int $userId, int $pageSize): LengthAwarePaginator;
+    public function getByUserIdPaginated(string|int $userId, int $pageSize): LengthAwarePaginator;
 
     /**
      * Fetch all \App\Models\UserPreference  records by user id.
      *
-     * @param int $userId
+     * @param string|int $userId
      * @return \Illuminate\Database\Eloquent\Collection
      */
-    public function getByUserId(int $userId): EloquentCollection;
+    public function getByUserId(string|int $userId): EloquentCollection;
 
     /**
      * Fetch \App\Models\UserPreference record by ID.
      *
-     * @param int $userId
+     * @param string|int $userId
      * @param int $id
      * @return \App\Models\UserPreference|null
      */
-    public function getByUserIdAndId(int $userId, int $id): null|UserPreference;
+    public function getByUserIdAndId(string|int $userId, int $id): null|UserPreference;
 }

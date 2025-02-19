@@ -524,6 +524,542 @@ paths:
                 - id
                 - reason
                 - type
+  '/api/user/news/article/read/{id}':
+    get:
+      summary: 'Read NewsArticle.'
+      operationId: readNewsArticle
+      description: "Fetch a record or records from the NewsArticles table.\nThe <b>id</b> param is optional but can either be a <b>string|null|int</b>\n\nIf the <b>id</b> has a <b>null</b> value the records will be paginated.\nThe returned page size is be set from <b>api.paginate.user_address.pageSize</b>\nconfig.\n\nIf the <b>id</b> is a <b>string</b> value it can only be set as <b>'all'</b>.\nThis will return all the records without being paginated.\n\nIf the <b>id</b> value is an <b>integer</b> it will try to fetch a single\nmatching record."
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}"
+      tags:
+        - 'Auth APIs'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'Optional parameter. The ID of the record.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: all
+  '/api/user/news/article/user_read/{user_id}/{id}':
+    get:
+      summary: 'Read NewsArticle by UserID.'
+      operationId: readNewsArticleByUserID
+      description: "Fetch a record or records from the Payouts table.\nThe <b>id</b> param is optional but can either be a <b>string|null|int</b>\n\nIf the <b>id</b> has a <b>null</b> value the records will be paginated.\nThe returned page size is be set from <b>api.paginate.user_address.pageSize</b>\nconfig.\n\nIf the <b>id</b> is a <b>string</b> value it can only be set as <b>'all'</b>.\nThis will return all the records without being paginated.\n\nIf the <b>id</b> value is an <b>integer</b> it will try to fetch a single\nmatching record."
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}"
+      tags:
+        - 'Auth APIs'
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: ipsum
+        required: true
+        schema:
+          type: string
+      -
+        in: path
+        name: id
+        description: 'Optional parameter. The ID of the record.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: all
+  '/api/user/news/source/read/{id}':
+    get:
+      summary: 'Read NewsSource.'
+      operationId: readNewsSource
+      description: "Fetch a record or records from the NewsSources table.\nThe <b>id</b> param is optional but can either be a <b>string|null|int</b>\n\nIf the <b>id</b> has a <b>null</b> value the records will be paginated.\nThe returned page size is be set from <b>api.paginate.user_address.pageSize</b>\nconfig.\n\nIf the <b>id</b> is a <b>string</b> value it can only be set as <b>'all'</b>.\nThis will return all the records without being paginated.\n\nIf the <b>id</b> value is an <b>integer</b> it will try to fetch a single\nmatching record."
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}"
+      tags:
+        - 'Auth APIs'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'Optional parameter. The ID of the record.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: all
+  /api/user/preference/create:
+    post:
+      summary: 'Create UserPreference.'
+      operationId: createUserPreference
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}"
+      tags:
+        - 'Auth APIs'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: ''
+                  example: author
+                  nullable: false
+                  enum:
+                    - source
+                    - author
+                    - category
+                tag:
+                  type: string
+                  description: 'Must not be greater than 150 characters.'
+                  example: hbgqwgrtphgjpaky
+                  nullable: false
+                name:
+                  type: string
+                  description: 'The name of the UserPreference.'
+                  example: John
+                  nullable: false
+              required:
+                - type
+                - tag
+                - name
+  /api/user/preference/delete:
+    delete:
+      summary: 'Delete UserPreference.'
+      operationId: deleteUserPreference
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}"
+      tags:
+        - 'Auth APIs'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: 'The id of the UserPreference.'
+                  example: '1'
+                  nullable: false
+              required:
+                - id
+  '/api/user/preference/user_read/{user_id}/{id}':
+    get:
+      summary: 'Read UserPreference by UserID.'
+      operationId: readUserPreferenceByUserID
+      description: "Fetch a record or records from the Payouts table.\nThe <b>id</b> param is optional but can either be a <b>string|null|int</b>\n\nIf the <b>id</b> has a <b>null</b> value the records will be paginated.\nThe returned page size is be set from <b>api.paginate.user_address.pageSize</b>\nconfig.\n\nIf the <b>id</b> is a <b>string</b> value it can only be set as <b>'all'</b>.\nThis will return all the records without being paginated.\n\nIf the <b>id</b> value is an <b>integer</b> it will try to fetch a single\nmatching record."
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}"
+      tags:
+        - 'Auth APIs'
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: iste
+        required: true
+        schema:
+          type: string
+      -
+        in: path
+        name: id
+        description: 'Optional parameter. The ID of the record.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: all
+  /api/user/admin/news/article/delete:
+    delete:
+      summary: 'Delete NewsArticle.'
+      operationId: deleteNewsArticle
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}"
+      tags:
+        - 'Auth APIs'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: 'The id of the NewsArticle.'
+                  example: '1'
+                  nullable: false
+              required:
+                - id
+  /api/user/admin/news/article/update:
+    put:
+      summary: 'Update NewsArticle.'
+      operationId: updateNewsArticle
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}"
+      tags:
+        - 'Auth APIs'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: 'The id of the NewsArticle.'
+                  example: '1'
+                  nullable: false
+                active:
+                  type: string
+                  description: ''
+                  example: '0'
+                  nullable: false
+                  enum:
+                    - '0'
+                    - '1'
+                name:
+                  type: string
+                  description: 'The name for the NewsArticle.'
+                  example: John
+                  nullable: false
+              required:
+                - id
+                - active
+                - name
+  /api/user/admin/news/source/delete:
+    delete:
+      summary: 'Delete NewsSource.'
+      operationId: deleteNewsSource
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}"
+      tags:
+        - 'Auth APIs'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: 'The id of the NewsSource.'
+                  example: '1'
+                  nullable: false
+              required:
+                - id
+  /api/user/admin/news/source/update:
+    put:
+      summary: 'Update NewsSource.'
+      operationId: updateNewsSource
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}"
+      tags:
+        - 'Auth APIs'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: 'The id of the NewsSource.'
+                  example: '1'
+                  nullable: false
+                name:
+                  type: string
+                  description: 'The name for the NewsSource.'
+                  example: John
+                  nullable: false
+                url:
+                  type: string
+                  description: 'Must be a valid URL. Must not be greater than 255 characters.'
+                  example: 'http://www.marks.com/voluptas-odio-reprehenderit-facilis-aperiam-magni-ut.html'
+                  nullable: false
+                active:
+                  type: string
+                  description: ''
+                  example: '1'
+                  nullable: false
+                  enum:
+                    - '0'
+                    - '1'
+              required:
+                - id
+                - name
+  /api/user/admin/news/category/create:
+    post:
+      summary: 'Create Category.'
+      operationId: createCategory
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}"
+      tags:
+        - 'Auth APIs'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the Category.'
+                  example: John
+                  nullable: false
+              required:
+                - name
+  /api/user/admin/news/category/delete:
+    delete:
+      summary: 'Delete Category.'
+      operationId: deleteCategory
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}"
+      tags:
+        - 'Auth APIs'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: 'The id of the Category.'
+                  example: '1'
+                  nullable: false
+              required:
+                - id
+  /api/user/admin/news/category/update:
+    put:
+      summary: 'Update Category.'
+      operationId: updateCategory
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}"
+      tags:
+        - 'Auth APIs'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: 'The id of the Category.'
+                  example: '1'
+                  nullable: false
+                name:
+                  type: string
+                  description: 'The name for the Category.'
+                  example: John
+                  nullable: false
+                active:
+                  type: string
+                  description: ''
+                  example: '1'
+                  nullable: false
+                  enum:
+                    - '0'
+                    - '1'
+              required:
+                - id
+                - name
+  '/api/user/admin/preference/read/{id}':
+    get:
+      summary: 'Read UserPreference.'
+      operationId: readUserPreference
+      description: "Fetch a record or records from the UserPreferences table.\nThe <b>id</b> param is optional but can either be a <b>string|null|int</b>\n\nIf the <b>id</b> has a <b>null</b> value the records will be paginated.\nThe returned page size is be set from <b>api.paginate.user_address.pageSize</b>\nconfig.\n\nIf the <b>id</b> is a <b>string</b> value it can only be set as <b>'all'</b>.\nThis will return all the records without being paginated.\n\nIf the <b>id</b> value is an <b>integer</b> it will try to fetch a single\nmatching record."
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}"
+      tags:
+        - 'Auth APIs'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'Optional parameter. The ID of the record.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: all
+  '/api/category/read/{id}':
+    get:
+      summary: 'Read Category.'
+      operationId: readCategory
+      description: "Fetch a record or records from the Categorys table.\nThe <b>id</b> param is optional but can either be a <b>string|null|int</b>\n\nIf the <b>id</b> has a <b>null</b> value the records will be paginated.\nThe returned page size is be set from <b>api.paginate.user_address.pageSize</b>\nconfig.\n\nIf the <b>id</b> is a <b>string</b> value it can only be set as <b>'all'</b>.\nThis will return all the records without being paginated.\n\nIf the <b>id</b> value is an <b>integer</b> it will try to fetch a single\nmatching record."
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"success\": true,\n\"status_code\": 200,\n\"message\": string\n\"data\": {}\n}"
+      tags:
+        - 'Auth APIs'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'Optional parameter. The ID of the record.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: all
   /api/change/pin:
     post:
       summary: 'Change Pin.'
@@ -543,12 +1079,12 @@ paths:
                 current_pin:
                   type: string
                   description: ''
-                  example: magnam
+                  example: accusamus
                   nullable: false
                 pin:
                   type: string
                   description: 'Must not be greater than 4 characters.'
-                  example: d
+                  example: stif
                   nullable: false
               required:
                 - current_pin
@@ -569,7 +1105,7 @@ paths:
         in: path
         name: uuid
         description: ''
-        example: 3f785baa-8ad3-3fa3-a7be-129addee4db6
+        example: 47422c08-86fd-3281-ba5e-efa02dfe5b69
         required: true
         schema:
           type: string
@@ -799,7 +1335,7 @@ paths:
         in: path
         name: otp
         description: ''
-        example: nihil
+        example: voluptas
         required: true
         schema:
           type: string
@@ -834,7 +1370,7 @@ paths:
               required:
                 - email
       security: []
-  /api/auth/create:
+  /api/create:
     post:
       summary: 'Create contact us message.'
       operationId: createContactUsMessage

@@ -88,7 +88,7 @@ class UserPreferenceRepository implements UserPreferenceRepositoryInterface
         return UserPreference::paginate($pageSize);
     }
 
-    public function getByUserIdPaginated(int $userId, int $pageSize): LengthAwarePaginator
+    public function getByUserIdPaginated(string|int $userId, int $pageSize): LengthAwarePaginator
     {
         return UserPreference::where('user_id', $userId)->paginate($pageSize);
     }
@@ -96,22 +96,22 @@ class UserPreferenceRepository implements UserPreferenceRepositoryInterface
     /**
      * Fetch all \App\Models\PartnerDriver records by user id.
      *
-     * @param int $userId
+     * @param string|int $userId
      * @return \Illuminate\Database\Eloquent\Collection
      */
-    public function getByUserId(int $userId): EloquentCollection
+    public function getByUserId(string|int $userId): EloquentCollection
     {
-        return UserPreference::where('user_id', $userId)->get();
+        return UserPreference::where('user_id', $userId)->groupBy('type')->get();
     }
 
     /**
      * Fetch \App\Models\Consolidation record by ID.
      *
-     * @param int $userId
+     * @param string|int $userId
      * @param int $id
      * @return \App\Models\UserPreference|null
      */
-    public function getByUserIdAndId(int $userId, int $id): null|UserPreference
+    public function getByUserIdAndId(string|int $userId, int $id): null|UserPreference
     {
         return UserPreference::where('user_id', $userId)->where('id', $id)->first();
     }

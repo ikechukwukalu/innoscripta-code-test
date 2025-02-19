@@ -6,6 +6,9 @@ return [
     'no_changes' => 'Nothing to change',
     'unknown_error' => 'An error has occurred',
     'not_found' => 'Not Found',
+    'not_allowed' => [
+        'access' => 'Not allowed to access this resource'
+    ],
 
     'empty_payload' => 'Empty request',
 

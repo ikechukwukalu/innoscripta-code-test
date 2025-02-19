@@ -7,7 +7,6 @@ use App\Http\Controllers\Auth\TwoFactorController;
 use App\Http\Controllers\Auth\ContactUsController;
 use App\Http\Controllers\Auth\UserDeviceTokenController;
 use App\Http\Controllers\Auth\VerificationController;
-use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\NewsArticleController;
 use App\Http\Controllers\NewsSourceController;
 use App\Http\Controllers\UserPreferenceController;
@@ -54,6 +53,7 @@ Route::prefix('user')->group(function () {
         Route::prefix('article')->group(function () {
 
             Route::get('read/{id?}', [NewsArticleController::class, 'read'])->name('readNewsArticle');
+            Route::get('user_read/{user_id}/{id?}', [NewsArticleController::class, 'readByUserId'])->name('readByUserIdNewsArticle');
 
         });
 
@@ -63,19 +63,13 @@ Route::prefix('user')->group(function () {
 
         });
 
-        Route::prefix('author')->group(function () {
-
-            Route::get('read/{id?}', [AuthorController::class, 'read'])->name('readAuthor');
-
-        });
-
     });
 
     Route::prefix('preference')->group(function () {
 
         Route::post('create', [UserPreferenceController::class, 'create'])->name('createUserPreference');
         Route::delete('delete', [UserPreferenceController::class, 'delete'])->name('deleteUserPreference');
-        Route::get('user_read/{id?}', [UserPreferenceController::class, 'read'])->name('readByUserIdUserPreference');
+        Route::get('user_read/{user_id}/{id?}', [UserPreferenceController::class, 'readByUserId'])->name('readByUserIdUserPreference');
 
     });
 

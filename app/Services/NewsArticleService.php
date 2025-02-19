@@ -46,4 +46,16 @@ class NewsArticleService extends BasicCrudService
         return $this->read($this->newsArticleRepository, 'news_article', $id);
     }
 
+    /**
+     * Handle the read request.
+     *
+     * @param string | int $userId
+     * @param null|string|int $id
+     * @return ResponseData
+     */
+    public function handleReadByUserId(string | int $userId, null | string | int $id = null): ResponseData
+    {
+        return $this->readByUserId($this->newsArticleRepository, 'user_preference', $userId, $id);
+    }
+
 }

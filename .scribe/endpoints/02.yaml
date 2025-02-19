@@ -336,7 +336,7 @@ endpoints:
         name: otp
         description: ''
         required: true
-        example: nihil
+        example: voluptas
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -344,7 +344,7 @@ endpoints:
         custom: []
     cleanUrlParameters:
       id: '1'
-      otp: nihil
+      otp: voluptas
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -425,7 +425,7 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/auth/create
+    uri: api/create
     metadata:
       groupName: 'No Auth APIs'
       groupDescription: ''

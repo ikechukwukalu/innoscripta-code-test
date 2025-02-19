@@ -4,10 +4,6 @@ namespace Tests\Feature;
 
 use App\Enums\UserPreferenceType;
 use App\Models\Admin;
-use App\Models\Author;
-use App\Models\Category;
-use App\Models\NewsApi;
-use App\Models\NewsSource;
 use App\Models\User;
 use App\Models\UserPreference;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -45,12 +41,9 @@ class UserPreferenceTest extends TestCase
 
         $this->actingAs($user);
 
-        $newsSource = NewsSource::where('model', NewsApi::class)->first();
-
         $postData = [
             'type' => UserPreferenceType::SOURCE->value,
-            'source_type' => UserPreferenceType::NEWS_API->value,
-            'preferential_id' => $newsSource->id,
+            'tag' => 'News API'
         ];
 
         $response = $this->postJson(route('createUserPreference'), $postData);
@@ -58,25 +51,21 @@ class UserPreferenceTest extends TestCase
 
         $response->assertOk();
         $this->assertTrue($responseArray['success']);
-
-        $author = Author::factory()->create();
-
-        $postData = [
-            'type' => UserPreferenceType::AUTHOR->value,
-            'preferential_id' => $author->id,
-        ];
-
-        $response = $this->postJson(route('createUserPreference'), $postData);
-        $responseArray = $response->json();
-
-        $response->assertOk();
-        $this->assertTrue($responseArray['success']);
-
-        $category = Category::factory()->create();
 
         $postData = [
             'type' => UserPreferenceType::CATEGORY->value,
-            'preferential_id' => $category->id,
+            'tag' => 'Business'
+        ];
+
+        $response = $this->postJson(route('createUserPreference'), $postData);
+        $responseArray = $response->json();
+
+        $response->assertOk();
+        $this->assertTrue($responseArray['success']);
+
+        $postData = [
+            'type' => UserPreferenceType::AUTHOR->value,
+            'tag' => 'Kalu Ikechukwu'
         ];
 
         $response = $this->postJson(route('createUserPreference'), $postData);

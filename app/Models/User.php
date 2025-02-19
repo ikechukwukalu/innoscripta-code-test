@@ -7,6 +7,7 @@ use App\Traits\MustVerifyPhone;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -90,6 +91,11 @@ class User extends Authenticatable implements TwoFactorAuthenticatable, MustVeri
     public function url(): string
     {
         return env('APP_URL');
+    }
+
+    public function userPreferences(): HasMany
+    {
+        return $this->hasMany(UserPreference::class, 'user_id');
     }
 
 }
