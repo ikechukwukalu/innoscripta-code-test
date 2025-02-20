@@ -54,7 +54,7 @@ php artisan scribe:generate
 
 ## Command
 
-- The developer is expected to set up a CRON job that will ensure that the schedule calls the `fetch:articles` command daily.
+- The developer is expected to set up a CRON job that will ensure that the scheduler calls the `fetch:articles` command daily.
 
 
 ```shell
