@@ -78,7 +78,7 @@ trait TableFilter
 
     public function scopeDate(Builder $query, string $dateColumn = 'created_at'): void
     {
-        $whiteList = ['created_at', 'updated_at'];
+        $whiteList = ['created_at', 'updated_at', 'published_at', 'archived_at'];
         $dateColumn = request()->query('date', 'created_at');
 
         if (!in_array(strtolower($dateColumn), $whiteList))

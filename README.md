@@ -72,5 +72,7 @@ php artisan scribe:generate
 }
 ```
 
+- Sample filter query `?page=1&order=desc&size=15&search=Bayern&from=2025-01-01&to=2025-02-28&date=published_at&filterColumn=category_name,news_source_name&filterValue=sports,NewsApi`
+
 - After generating the documentation, navigate to `/docs` to view and test the APIs within the generated documentation by clicking on the `TRY IT OUT` button. A POSTMAN collection can also be exported from the documentation.
 
