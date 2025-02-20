@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Scopes\TheGuardianScope;
+use App\Services\TheGuardianService;
 use App\Traits\DefaultOrderTrait;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -20,7 +21,7 @@ class TheGuardian extends NewsSource
 
     public function getNewsService(): mixed
     {
-        return null;
+        return new TheGuardianService;
     }
 
     protected function model(): Attribute

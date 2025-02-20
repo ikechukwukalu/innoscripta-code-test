@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Scopes\NewsApiScope;
+use App\Services\NewsApiService;
 use App\Traits\DefaultOrderTrait;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -21,7 +22,7 @@ class NewsApi extends NewsSource
 
     public function getNewsService(): mixed
     {
-        return null;
+        return new NewsApiService;
     }
 
     protected function model(): Attribute

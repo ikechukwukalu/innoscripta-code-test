@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Scopes\NewYorkTimesScope;
+use App\Services\NewYorkTimesService;
 use App\Traits\DefaultOrderTrait;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -21,7 +22,7 @@ class NewYorkTimes extends NewsSource
 
     public function getNewsService(): mixed
     {
-        return null;
+        return new NewYorkTimesService;
     }
 
     protected function model(): Attribute
