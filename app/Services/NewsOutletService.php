@@ -16,8 +16,6 @@ abstract class NewsOutletService
 {
 
     protected array $newsArticleInserts = [];
-    protected array $authorInserts = [];
-    protected array $newsAuthorInserts = [];
 
     abstract public function fetchArticles(): ResponseData;
 
