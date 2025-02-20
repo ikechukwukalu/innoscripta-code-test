@@ -3,7 +3,6 @@
 namespace App\Traits;
 
 use App\Actions\AdvancedSearch;
-use App\Enums\HeaderKey;
 use App\Facades\Database;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -48,7 +47,6 @@ trait TableFilter
 
                 if ($model = Database::queryBuilder($column->getParent())
                     ->whereIn($column->getForeignString(), $ids)
-                    ->where('mode', request()->header(HeaderKey::MODE->value))
                     ->get())
                 {
 
