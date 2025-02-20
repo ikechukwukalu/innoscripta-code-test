@@ -92,6 +92,7 @@ abstract class NewsOutletService
                     $category = $categories->where('id', $categoryId)->first();
 
                     if ($articles) {
+
                         collect($articles)->map(function ($article)
                             use(
                                 $category,
@@ -101,6 +102,7 @@ abstract class NewsOutletService
 
                             if (data_get($article, $newsArticleInsertKeys['source_external_id'])
                                 && !NewsArticleFacade::getBySourceExternalId(data_get($article, $newsArticleInsertKeys['source_external_id']))) {
+
                                 $this->newsArticleInserts[] = [
                                     'title' => data_get($article, $newsArticleInsertKeys['title']),
                                     'description' => data_get($article, $newsArticleInsertKeys['description']),
@@ -116,6 +118,7 @@ abstract class NewsOutletService
                                     'active' => true,
                                     'authors' => $newsArticleInsertKeys['authors'] ? data_get($article, $newsArticleInsertKeys['authors']) : null,
                                 ];
+
                             }
 
                             return $article;
